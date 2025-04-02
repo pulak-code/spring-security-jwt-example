@@ -1,7 +1,55 @@
-spring:
-  h2:
-    console:
-      enabled: true
-
 server:
-    port: 9192
+  port: 8081
+  servlet:
+    context-path: /
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: UserDb
+      auto-index-creation: true
+
+jwt:
+  secret:
+    key: 2d633f330d09b6d407e0c771fa2e691fe4565d27a8339adf0e5fd3c69eaf392852c03b56a769f0b19f1dc68f78bdf9a0414c5a790a40cd6e14f29ecfa1e0366a88650db3f519de17647da5e8ae91e2b573957eb612e965be164ca44f0da6bd7b2c6f4f2d07550cf17ac0602d66345e7fd25b77b1e8700312e3ea6cdc37af01b4ef021e92bf1e88494904808dd706c5766f3f540e2ce2a57740dcd7c5a30d0ec081c4723bb62f85587c121aa5f6e1cd47c075f6c5ab8631ee83c64848443aa1c81577a60b54bd6555cc7a498e05f283aae9d94a3b41b5675ea0dcb3f3e0f14d4ef36a210b9fc5f8b7ba5d669dc41c0ef5123920c65921b2a3e56b87474044c390
+
+security:
+  jwt:
+    expiration-ms: 2400000
+    refresh-expiration-ms: 86400000
+  basic:
+    enabled: false
+
+token:
+  storage:
+    strategy: MEMORY
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: alpha
+    tagsSorter: alpha
+    filter: true
+    disable-swagger-default-url: true
+    enabled: true
+  packages-to-scan: genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    genaidemopoc.ecommerceproj1a.jwtspringsecurity: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  file:
+    name: logs/v1/application.log
+    max-size: 10MB
+    max-history: 5
+
+management:
+  security:
+    enabled: false

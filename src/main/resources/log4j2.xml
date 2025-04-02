@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<!-- Rolling File Appender -->
+		<RollingFile name="DailyRollingFileAppender"
+			fileName="logs/v1/app-log.log"
+			filePattern="logs/v1/app-log-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{48} -
+					%msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<!-- Create a new file every day -->
+				 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+			<DefaultRolloverStrategy max="14" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<!-- Root Logger -->
+		<Root level="info">
+			<AppenderRef ref="DailyRollingFileAppender" />
+		</Root>
+	</Loggers>
+</Configuration>
