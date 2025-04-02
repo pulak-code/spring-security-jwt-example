@@ -1,0 +1,53 @@
+#Basic app & server properties
+spring:
+  application:
+    name: demo
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ecommerce
+      database: ecommerce
+      auto-index-creation: true
+      # Add connection options for more reliable startup
+      connection-pool:
+        max-size: 100
+        min-size: 0
+      connect-timeout: 10000 # 10 seconds
+
+server:
+  port: 8081
+
+# JWT properties
+security:
+  jwt:
+    expiration-ms: 1200000  # Token expiration time in milliseconds (20 mins)
+    refresh-expiration-ms: 604800000 # Refresh Token expiration time in milliseconds(7 days)
+    secret: ${JWT_SECRET:defaultsecretfordevonly}  # Use environment variable, default is only for dev
+
+
+# Logging configuration file (optional if it's placed in classpath)
+logging:
+  config: classpath:log4j2.xml
+  level:
+    root: info
+    "[demo.chatgpt.demoproject.ecommerce.userservice.security]": debug
+    org.springframework.data.mongodb: debug  # Add MongoDB-specific logging
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health,info  # Expose these endpoints for monitoring
+
+# Configure Springdoc (Swagger)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  packages-to-scan: genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc
+  
+
+  

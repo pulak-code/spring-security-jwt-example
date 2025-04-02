@@ -1,0 +1,208 @@
+2025-03-30 05:36:57 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -
+					Application shutdown requested.
+2025-03-30 05:36:57 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 05:36:59 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-03-30 05:37:07 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-03-30 05:37:07 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 51672 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-03-30 05:37:07 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-03-30 05:37:07 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-30 05:37:07 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-30 05:37:08 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-03-30 05:37:08 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 32 ms. Found 1 MongoDB repository interface.
+2025-03-30 05:37:08 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-03-30 05:37:08 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1064 ms
+2025-03-30 05:37:08 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-03-30 05:37:09 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Found 2 AuthenticationProvider beans, with names [jwtAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2025-03-30 05:37:09 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Found 2 UserDetailsService beans, with names [customUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2025-03-30 05:37:09 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-03-30 05:37:09 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-03-30 05:37:09 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 2.34 seconds (process running for 3.082)
+2025-03-30 05:37:10 [RMI TCP Connection(10)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-03-30 05:37:10 [RMI TCP Connection(10)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-03-30 05:37:28 [http-nio-8081-exec-5] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:13 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2025-03-30 05:39:13 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 05:39:15 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-03-30 05:39:16 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 51672 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-03-30 05:39:16 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 10 ms. Found 1 MongoDB repository interface.
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 381 ms
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Found 2 AuthenticationProvider beans, with names [jwtAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2025-03-30 05:39:16 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Found 2 UserDetailsService beans, with names [customUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-03-30 05:39:16 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.769 seconds (process running for 130.298)
+2025-03-30 05:39:16 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-03-30 05:39:24 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-03-30 05:39:24 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 14 ms
+2025-03-30 05:39:24 [http-nio-8081-exec-2] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:25 [http-nio-8081-exec-4] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:25 [http-nio-8081-exec-6] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:26 [http-nio-8081-exec-8] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:27 [http-nio-8081-exec-10] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:39:29 [http-nio-8081-exec-2] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:40:51 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-03-30 05:40:51 [Thread-7] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 05:40:53 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-03-30 05:40:53 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 51672 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-03-30 05:40:53 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 9 ms. Found 1 MongoDB repository interface.
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 363 ms
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Found 2 AuthenticationProvider beans, with names [jwtAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2025-03-30 05:40:54 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Found 2 UserDetailsService beans, with names [customUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-03-30 05:40:54 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.705 seconds (process running for 227.976)
+2025-03-30 05:40:54 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-03-30 05:41:45 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-03-30 05:41:45 [Thread-11] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 05:41:47 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-03-30 05:41:47 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 51672 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-03-30 05:41:47 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-03-30 05:41:47 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-03-30 05:41:47 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 9 ms. Found 1 MongoDB repository interface.
+2025-03-30 05:41:48 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-03-30 05:41:48 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 325 ms
+2025-03-30 05:41:48 [restartedMain] ERROR org.springframework.boot.web.embedded.tomcat.TomcatStarter -
+					Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'JWTAuthenticationFilter' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/filter/JWTAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'JWTUtil' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/utilservice/JWTUtil.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userServiceImpl' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/service/UserServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'securityConfig' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/config/SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'JWTAuthenticationFilter': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+2025-03-30 05:41:48 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2025-03-30 05:41:48 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 05:41:48 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  JWTAuthenticationFilter defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/filter/JWTAuthenticationFilter.class]
+↑     ↓
+|  JWTUtil defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/utilservice/JWTUtil.class]
+↑     ↓
+|  userServiceImpl defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/service/UserServiceImpl.class]
+↑     ↓
+|  securityConfig defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/security/config/SecurityConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2025-03-30 05:41:58 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 51672 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-03-30 05:41:58 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 10 ms. Found 1 MongoDB repository interface.
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 374 ms
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Found 2 AuthenticationProvider beans, with names [jwtAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2025-03-30 05:41:59 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Found 2 UserDetailsService beans, with names [customUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-03-30 05:41:59 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.725 seconds (process running for 293.018)
+2025-03-30 05:41:59 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-03-30 05:42:00 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-03-30 05:42:00 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 4 ms
+2025-03-30 05:42:07 [http-nio-8081-exec-2] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]
+2025-03-30 05:42:08 [http-nio-8081-exec-7] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [io.jsonwebtoken.MalformedJwtException: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0]

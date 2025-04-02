@@ -1,0 +1,181 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< com.chathpt.demoproject.ecommerce:Initial01 >-------------
+[INFO] Building demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ Initial01 ---
+[INFO] Deleting /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ Initial01 ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ Initial01 ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 51 source files with javac [debug parameters release 17] to target/classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ Initial01 ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ Initial01 ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 15 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[WARNING] /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/src/test/java/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/integration/TestConfig.java:[58,17] setConnectTimeout(java.time.Duration) in org.springframework.boot.web.client.RestTemplateBuilder has been deprecated and marked for removal
+[WARNING] /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/src/test/java/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/integration/TestConfig.java:[59,17] setReadTimeout(java.time.Duration) in org.springframework.boot.web.client.RestTemplateBuilder has been deprecated and marked for removal
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ Initial01 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.855 s <<< FAILURE! -- in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithException -- Time elapsed: 0.813 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithNullEmailValidUsername -- Time elapsed: 0.006 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithBothEmpty -- Time elapsed: 0.003 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithEmptyResults -- Time elapsed: 0.004 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithBothNull -- Time elapsed: 0.004 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.testSearchUserWithValidEmailNullUsername -- Time elapsed: 0.004 s <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   AdminServiceImplTest.testSearchUserWithBothEmpty » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[ERROR]   AdminServiceImplTest.testSearchUserWithBothNull » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[ERROR]   AdminServiceImplTest.testSearchUserWithEmptyResults » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[ERROR]   AdminServiceImplTest.testSearchUserWithException » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[ERROR]   AdminServiceImplTest.testSearchUserWithNullEmailValidUsername » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[ERROR]   AdminServiceImplTest.testSearchUserWithValidEmailNullUsername » UnnecessaryStubbing 
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminServiceImplTest.setup(AdminServiceImplTest.java:63)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+[INFO] 
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.369 s
+[INFO] Finished at: 2025-04-02T02:39:21+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project Initial01: 
+[ERROR] 
+[ERROR] See /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

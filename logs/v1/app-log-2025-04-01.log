@@ -1,0 +1,1370 @@
+2025-04-01 00:52:06 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 00:52:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 38899 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 00:52:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 00:52:06 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 00:52:06 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 00:52:07 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 00:52:07 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 46 ms. Found 1 MongoDB repository interface.
+2025-04-01 00:52:08 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 00:52:08 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1264 ms
+2025-04-01 00:52:08 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 00:52:08 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 00:52:08 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 00:52:08 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-04-01 00:52:09 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 00:52:09 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 2.596 seconds (process running for 3.548)
+2025-04-01 00:52:39 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 00:52:39 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 1 ms
+2025-04-01 01:05:49 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:05:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 43125 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:05:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:05:49 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:05:49 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:05:49 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:05:50 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 34 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:05:50 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:05:50 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1100 ms
+2025-04-01 01:05:50 [restartedMain] WARN  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					Unable to start LiveReload server
+2025-04-01 01:05:50 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:05:50 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:05:51 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 1 endpoint beneath base path ''
+2025-04-01 01:05:51 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-04-01 01:05:51 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:05:51 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2025-04-01 01:06:13 [http-nio-8081-exec-9] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui/index.htmlcurl.]
+2025-04-01 01:08:58 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 01:08:58 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:09:00 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:09:00 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 38899 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:09:00 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 10 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 290 ms
+2025-04-01 01:09:00 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:09:00 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:09:00 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:09:00 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.521 seconds (process running for 1015.097)
+2025-04-01 01:09:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   InfoEndpointAutoConfiguration matched:
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+
+   InfoEndpointAutoConfiguration#infoEndpoint matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.info.InfoEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-04-01 01:09:28 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 01:09:28 [Thread-7] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:09:30 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:09:30 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 38899 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:09:30 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 11 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 270 ms
+2025-04-01 01:09:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:09:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:09:30 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:09:30 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.468 seconds (process running for 1045.357)
+2025-04-01 01:09:30 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 01:09:56 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:09:56 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 44308 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:09:56 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:09:56 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:09:56 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:09:57 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:09:57 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 35 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:09:57 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:09:57 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1104 ms
+2025-04-01 01:09:58 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:09:58 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:09:58 [restartedMain] WARN  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					Unable to start LiveReload server
+2025-04-01 01:09:58 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:09:58 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:09:58 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:09:58 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-04-01 01:09:58 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:09:58 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2025-04-01 01:10:11 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 01:10:11 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-04-01 01:11:53 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 01:11:53 [Thread-11] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:11:55 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:11:55 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 38899 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:11:55 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 9 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 256 ms
+2025-04-01 01:11:55 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:11:55 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:11:55 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:11:55 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.459 seconds (process running for 1190.215)
+2025-04-01 01:11:55 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 01:12:39 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 01:12:39 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-04-01 01:12:58 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:13:00 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:13:04 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:13:04 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 45147 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:13:04 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:13:04 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:13:04 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:13:05 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:13:05 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 39 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:13:05 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:13:05 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1226 ms
+2025-04-01 01:13:06 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:13:06 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:13:06 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:13:06 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:13:06 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:13:06 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:13:06 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:13:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 2.664 seconds (process running for 3.602)
+2025-04-01 01:13:14 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 01:13:14 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 1 ms
+2025-04-01 01:13:29 [http-nio-8081-exec-10] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui.]
+2025-04-01 01:14:31 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:14:33 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:14:34 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:14:34 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 45551 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:14:34 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:14:34 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:14:34 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:14:35 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:14:35 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 38 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:14:35 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:14:35 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1277 ms
+2025-04-01 01:14:36 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:14:36 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:14:36 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:14:36 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:14:36 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:14:36 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:14:36 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:14:36 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 2.676 seconds (process running for 3.427)
+2025-04-01 01:14:40 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 01:14:40 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 4 ms
+2025-04-01 01:14:58 [http-nio-8081-exec-5] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui.]
+2025-04-01 01:17:44 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 01:17:45 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 01:17:47 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 01:17:47 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 45551 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:17:47 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 13 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 432 ms
+2025-04-01 01:17:47 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:17:47 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:17:47 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:17:47 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:17:47 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:17:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 45551 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:17:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 11 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 324 ms
+2025-04-01 01:17:49 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:17:49 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:17:49 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:17:49 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:17:49 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:47:57 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:47:57 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 58597 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:47:57 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:47:57 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:47:57 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:47:58 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:47:58 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 33 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:47:58 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:47:58 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1102 ms
+2025-04-01 01:47:59 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:47:59 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:47:59 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:47:59 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:47:59 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:47:59 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:48:08 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:48:08 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 58665 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:48:08 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:48:08 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:48:08 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:48:08 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:48:08 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 33 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:48:09 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:48:09 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1017 ms
+2025-04-01 01:48:09 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:48:09 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:48:09 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:48:09 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:48:09 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:48:09 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:49:08 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:49:09 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 59122 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:49:09 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:49:09 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:49:09 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:49:09 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:49:09 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 36 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:49:10 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:49:10 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1140 ms
+2025-04-01 01:49:10 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:49:10 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:49:10 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:49:10 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:49:10 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:49:10 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:49:57 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:49:57 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 59497 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:49:57 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:49:57 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:49:57 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:49:58 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:49:58 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 36 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:49:58 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:49:58 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1066 ms
+2025-04-01 01:49:58 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:49:59 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:49:59 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:49:59 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:49:59 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:49:59 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:50:53 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:50:53 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 59786 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:50:53 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:50:53 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:50:53 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 35 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1102 ms
+2025-04-01 01:50:54 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:50:54 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:50:54 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext -
+					Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes/genaidemopoc/ecommerceproj1a/jwtspringsecurity/usersvc/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-04-01 01:50:54 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger -
+					
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-04-01 01:50:54 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter -
+					
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AdminController required a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AdminService' in your configuration.
+
+2025-04-01 01:52:28 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 01:52:29 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 60245 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 01:52:29 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 01:52:29 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 01:52:29 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 01:52:29 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 01:52:29 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 35 ms. Found 1 MongoDB repository interface.
+2025-04-01 01:52:30 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 01:52:30 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 1110 ms
+2025-04-01 01:52:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 01:52:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 01:52:30 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 01:52:30 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 01:52:30 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 01:52:30 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 01:52:31 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 01:52:31 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 2.441 seconds (process running for 3.008)
+2025-04-01 01:53:23 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 01:53:23 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 1 ms
+2025-04-01 01:53:23 [http-nio-8081-exec-1] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui.]
+2025-04-01 01:53:26 [http-nio-8081-exec-3] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui.]
+2025-04-01 01:53:45 [http-nio-8081-exec-5] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui/inex.html.]
+2025-04-01 19:46:26 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example.com"}, Fields: {}, Sort: {}
+2025-04-01 19:46:26 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example.com"} fields: Document{{}} sort: { "email" : "test@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 19:46:26 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Inserting Document containing fields: [name, email, password, addresses, rolesList, orderIds, _class] in collection: users
+2025-04-01 19:47:13 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 58 class path changes (0 additions, 58 deletions, 0 modifications)
+2025-04-01 19:47:13 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 19:47:15 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 19:47:15 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 60245 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 19:47:15 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 19:47:15 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 19:47:15 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+2025-04-01 19:47:15 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 19:47:15 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 434 ms
+2025-04-01 19:47:16 [restartedMain] WARN  org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration -
+					
+
+Using generated security password: 1216cb04-a764-4610-9723-7b5da733a3e5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-04-01 19:47:16 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-04-01 19:47:16 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 19:47:16 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 19:47:16 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 19:47:16 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.835 seconds (process running for 10866.628)
+2025-04-01 19:47:16 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   ManagementWebSecurityAutoConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+      - @ConditionalOnBean (types: org.springframework.security.config.ObjectPostProcessor; SearchStrategy: all) found beans 'objectPostProcessor', 'webAuthorizationManagerPostProcessor', 'filterChainDecoratorPostProcessor', 'authenticationManagerPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-04-01 19:47:17 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 6 class path changes (6 additions, 0 deletions, 0 modifications)
+2025-04-01 19:47:17 [Thread-7] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 19:47:19 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 19:47:19 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 60245 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 19:47:19 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 19:47:19 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 19:47:19 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 0 ms. Found 0 MongoDB repository interfaces.
+2025-04-01 19:47:19 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 19:47:19 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 168 ms
+2025-04-01 19:47:20 [restartedMain] WARN  org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration -
+					
+
+Using generated security password: d56ffc96-b825-4543-94e8-25cd619c3802
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-04-01 19:47:20 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-04-01 19:47:20 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 19:47:20 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 19:47:20 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 19:47:20 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.311 seconds (process running for 10870.401)
+2025-04-01 19:47:20 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 19:47:57 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 19:47:57 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-04-01 19:58:28 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 19:58:29 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 18143 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 19:58:29 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 23 ms. Found 1 MongoDB repository interface.
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 19:58:29 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 761 ms
+2025-04-01 19:58:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 19:58:30 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 19:58:30 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 19:58:30 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 19:58:30 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 19:58:30 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 19:58:30 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 19:58:30 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 1.682 seconds (process running for 2.126)
+2025-04-01 19:58:34 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 19:58:34 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-04-01 19:59:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example.com"}, Fields: {}, Sort: {}
+2025-04-01 19:59:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example.com"} fields: Document{{}} sort: { "email" : "test@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 19:59:12 [http-nio-8081-exec-10] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.UserAlreadyExistsException: User already exists]
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example.com"}, Fields: {}, Sort: {}
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example.com"} fields: Document{{}} sort: { "email" : "test@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example.com"}, Fields: {}, Sort: {}
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example.com"} fields: Document{{}} sort: { "email" : "test@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example.com"}, Fields: {}, Sort: {}
+2025-04-01 19:59:19 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example.com"} fields: Document{{}} sort: { "email" : "test@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 20:01:09 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 20:01:09 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 20:01:10 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Inserting Document containing fields: [name, email, password, addresses, rolesList, orderIds, _class] in collection: users
+2025-04-01 20:02:47 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 20:02:47 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 20:02:48 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 20:02:48 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 20:02:48 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 20:02:48 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:17:57 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 23:17:57 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:17:57 [http-nio-8081-exec-8] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.UserAlreadyExistsException: User already exists]
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "test@example1.com"}, Fields: {}, Sort: {}
+2025-04-01 23:21:03 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "test@example1.com"} fields: Document{{}} sort: { "email" : "test@example1.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:22:03 [http-nio-8081-exec-2] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2025-04-01 23:23:56 [http-nio-8081-exec-5] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2025-04-01 23:28:46 [http-nio-8081-exec-3] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.AuthResponse> genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller.AuthController.registerUser(genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserRegisterRequest) with 3 errors: [Field error in object 'userRegisterRequest' on field 'password': rejected value [null]; codes [NotBlank.userRegisterRequest.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRegisterRequest.password,password]; arguments []; default message [password]]; default message [Password is required]] [Field error in object 'userRegisterRequest' on field 'name': rejected value [null]; codes [NotBlank.userRegisterRequest.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRegisterRequest.name,name]; arguments []; default message [name]]; default message [Name is required]] [Field error in object 'userRegisterRequest' on field 'email': rejected value [null]; codes [NotBlank.userRegisterRequest.email,NotBlank.email,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRegisterRequest.email,email]; arguments []; default message [email]]; default message [Email is required]] ]
+2025-04-01 23:29:07 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:29:07 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin@example.com"} fields: Document{{}} sort: { "email" : "admin@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:29:08 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Inserting Document containing fields: [name, email, password, addresses, rolesList, orderIds, _class] in collection: users
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin@example.com"} fields: Document{{}} sort: { "email" : "admin@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin@example.com"} fields: Document{{}} sort: { "email" : "admin@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:29:39 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin@example.com"} fields: Document{{}} sort: { "email" : "admin@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:32:03 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:32:03 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:32:05 [http-nio-8081-exec-3] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:32:05 [http-nio-8081-exec-3] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:32:05 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:32:05 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:36:16 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 6 class path changes (0 additions, 0 deletions, 6 modifications)
+2025-04-01 23:36:16 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 23:36:18 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 23:36:18 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 18143 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:36:18 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:36:18 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:36:18 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 9 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:36:18 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:36:18 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 373 ms
+2025-04-01 23:36:19 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:36:19 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:36:19 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:36:19 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:36:19 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:36:19 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:36:19 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:36:19 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.682 seconds (process running for 7878.914)
+2025-04-01 23:36:19 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 23:36:29 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 23:36:29 [Thread-7] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 23:36:31 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 23:36:31 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 18143 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:36:31 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 8 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 280 ms
+2025-04-01 23:36:32 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:36:32 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:36:32 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:36:32 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.461 seconds (process running for 7892.026)
+2025-04-01 23:36:32 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 23:40:18 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 23:40:18 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 57152 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:40:18 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:40:18 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 23:40:18 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 23:40:18 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:40:18 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 24 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 778 ms
+2025-04-01 23:40:19 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:40:19 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:40:19 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:40:19 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:40:19 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 1.699 seconds (process running for 2.119)
+2025-04-01 23:40:38 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 23:40:38 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 2 ms
+2025-04-01 23:40:58 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:40:58 [http-nio-8081-exec-6] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:41:02 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:41:02 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin@example.com"} fields: Document{{}} sort: { "email" : "admin@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:41:02 [http-nio-8081-exec-8] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.UserAlreadyExistsException: User already exists]
+2025-04-01 23:41:13 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin1@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:41:13 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin1@example.com"} fields: Document{{}} sort: { "email" : "admin1@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:41:13 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Inserting Document containing fields: [name, email, password, addresses, rolesList, orderIds, _class] in collection: users
+2025-04-01 23:41:35 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin1@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:41:35 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin1@example.com"} fields: Document{{}} sort: { "email" : "admin1@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:41:36 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin1@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:41:36 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin1@example.com"} fields: Document{{}} sort: { "email" : "admin1@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:41:36 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin1@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:41:36 [http-nio-8081-exec-9] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin1@example.com"} fields: Document{{}} sort: { "email" : "admin1@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:42:35 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:42:35 [http-nio-8081-exec-5] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:42:38 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:42:38 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:42:39 [http-nio-8081-exec-2] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:42:39 [http-nio-8081-exec-2] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:42:56 [http-nio-8081-exec-3] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : null}, Fields: {}, Sort: {}
+2025-04-01 23:42:56 [http-nio-8081-exec-3] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : null} fields: Document{{}} sort: { "email" : null} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:46:46 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 23:46:46 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 23:46:48 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 23:46:48 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 57152 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:46:48 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 8 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 272 ms
+2025-04-01 23:46:48 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:46:48 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:46:48 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:46:48 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.5 seconds (process running for 390.967)
+2025-04-01 23:46:48 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 23:48:54 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 23:48:54 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 61042 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:48:55 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 27 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:48:55 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 870 ms
+2025-04-01 23:48:56 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:48:56 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:48:56 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:48:56 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:48:56 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:48:56 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:48:56 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:48:56 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 1.873 seconds (process running for 2.339)
+2025-04-01 23:49:04 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 23:49:04 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 23:49:06 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 23:49:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 61042 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:49:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 8 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 205 ms
+2025-04-01 23:49:06 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:49:06 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:49:06 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:49:06 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.393 seconds (process running for 12.298)
+2025-04-01 23:49:06 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged
+2025-04-01 23:50:16 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+					HV000001: Hibernate Validator 8.0.2.Final
+2025-04-01 23:50:17 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 61443 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:50:17 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor -
+					For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 25 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:50:17 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 751 ms
+2025-04-01 23:50:18 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:50:18 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:50:18 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:50:18 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:50:18 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:50:18 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:50:18 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:50:18 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 1.621 seconds (process running for 2.002)
+2025-04-01 23:51:09 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Initializing Servlet 'dispatcherServlet'
+2025-04-01 23:51:09 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+					Completed initialization in 3 ms
+2025-04-01 23:51:23 [http-nio-8081-exec-4] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:51:23 [http-nio-8081-exec-4] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:51:23 [http-nio-8081-exec-4] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Inserting Document containing fields: [name, email, password, addresses, rolesList, orderIds, _class] in collection: users
+2025-04-01 23:51:29 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:51:29 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:51:29 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:51:29 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:51:30 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:51:30 [http-nio-8081-exec-8] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Executing count: { "email" : "admin2@example.com"} in collection: users
+2025-04-01 23:52:19 [http-nio-8081-exec-7] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: {} fields: Document{{}} sort: null for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					find using query: { "email" : "admin2@example.com"} fields: Document{{}} sort: { "email" : "admin2@example.com"} for class: class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity in collection: users
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.repository.query.MongoQueryCreator -
+					Created query Query: { "email" : "admin2@example.com"}, Fields: {}, Sort: {}
+2025-04-01 23:53:12 [http-nio-8081-exec-10] DEBUG org.springframework.data.mongodb.core.MongoTemplate -
+					Executing count: { "email" : "admin2@example.com"} in collection: users
+2025-04-01 23:53:12 [http-nio-8081-exec-10] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver -
+					Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+2025-04-01 23:55:47 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+					Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-04-01 23:55:47 [Thread-4] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 23:55:49 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown -
+					Graceful shutdown complete
+2025-04-01 23:55:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Starting UserServiceApplication using Java 21.0.2 with PID 61443 (/Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A/target/classes started by pulakroy in /Users/pulakroy/Pulak/MyWorkSpace/EclipseWS_new/ProjectEcommerece/Userservice1A)
+2025-04-01 23:55:49 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					No active profile set, falling back to 1 default profile: "default"
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate -
+					Finished Spring Data repository scanning in 8 ms. Found 1 MongoDB repository interface.
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat initialized with port 8081 (http)
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -
+					Root WebApplicationContext: initialization completed in 280 ms
+2025-04-01 23:55:50 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.Address for index information
+2025-04-01 23:55:50 [restartedMain] DEBUG org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator -
+					Analyzing class class genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity for index information
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer -
+					LiveReload server is running on port 35729
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer -
+					Global AuthenticationManager configured with AuthenticationProvider bean with name jwtAuthenticationProvider
+2025-04-01 23:55:50 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer -
+					Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver -
+					Exposing 2 endpoints beneath base path ''
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -
+					Tomcat started on port 8081 (http) with context path '/'
+2025-04-01 23:55:50 [restartedMain] INFO  genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.UserServiceApplication -
+					Started UserServiceApplication in 0.508 seconds (process running for 333.995)
+2025-04-01 23:55:50 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener -
+					Condition evaluation unchanged

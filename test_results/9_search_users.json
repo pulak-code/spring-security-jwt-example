@@ -1,0 +1,1 @@
+{"timestamp":"2025-04-02T01:05:30.202665","status":500,"error":"Internal Server Error","message":"Argument for creating $regex pattern for property 'name' must not be null"}
