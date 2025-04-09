@@ -7,25 +7,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Function;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value; import org.springframework.context.annotation.Lazy;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.InvalidJWTTokenException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.KeyGenerationException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.TokenBlacklistService;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.lang.Collections;
 import io.jsonwebtoken.security.Keys;
 
@@ -33,15 +35,17 @@ import io.jsonwebtoken.security.Keys;
 public class JWTUtil {
 	private static final Logger jwtUtilLogger = LoggerFactory.getLogger(JWTUtil.class);
 	private SecretKey signingKey;
-	@Value("${security.jwt.refresh-expiration-ms}")
-	private long refreshTokenExpirationTime;
-	@Value("${security.jwt.expiration-ms:2400000}") // Default: 40 minutes if not set private
-	long accessTokenExpirationTime;
+	@Value("${jwt.secret}")
+	private String secretKey;
+	@Value("${jwt.expiration}")
+	private long jwtExpiration;
+	@Value("${jwt.refresh-token.expiration}")
+	private long refreshExpiration;
 	private final UserService userService;
 
 	// Constructor: loads existing secret or generates new one if missing.
-	public JWTUtil(@Value("${jwt.secret.key:}") String secretKeyProperty,@Lazy UserService userService) {
-		signingKey= getNewSigningKey(secretKeyProperty);
+	public JWTUtil(@Value("${jwt.secret.key:}") String secretKeyProperty, @Lazy UserService userService) {
+		signingKey = getNewSigningKey(secretKeyProperty);
 		this.userService = userService;
 	}
 
@@ -52,71 +56,57 @@ public class JWTUtil {
 	}
 
 	// Generate Access Token (Includes user claims)
-	public String generateAccessToken(UserEntity user) {
-		Map<String, Object> claims = new HashMap<>();
-		claims.put("userId", user.getId());
-		claims.put("roles", getFormattedRoles(user));
-		claims.put("sub", user.getEmail());
-		return createJwtToken(claims, accessTokenExpirationTime);
+	public String generateAccessToken(String userEmail) {
+		return generateToken(new HashMap<>(), userEmail, jwtExpiration);
 	}
 
 	// Generate Refresh Token (Minimal claims)
-	public String generateRefreshToken(String userEmail) {
-		Map<String, Object> claims = new HashMap<>();
-		claims.put("sub", userEmail); // Subject (user email)
-		claims.put("jti", UUID.randomUUID().toString()); // Unique token ID
-		claims.put("iat", System.currentTimeMillis()); // Issued at time
-		claims.put("type", "refresh");
-		return createJwtToken(claims, refreshTokenExpirationTime);
+	public String generateRefreshToken() {
+		return generateToken(new HashMap<>(), UUID.randomUUID().toString(), refreshExpiration);
 	}
 
-	// Rotate Refresh Token (Blacklist old one)
-	public String generateRotatedRefreshToken(String oldToken, TokenBlacklistService tokenBlacklistService) {
-		String newToken = generateRefreshToken(extractUser(oldToken).getEmail());
-		tokenBlacklistService.blacklistToken(oldToken, getExpiration(oldToken).getTime());
-		return newToken;
+	private String generateToken(Map<String, Object> extraClaims, String subject, long expiration) {
+		return Jwts.builder()
+				.setClaims(extraClaims)
+				.setSubject(subject)
+				.setIssuedAt(new Date(System.currentTimeMillis()))
+				.setExpiration(new Date(System.currentTimeMillis() + expiration))
+				.signWith(getSigningKey(), SignatureAlgorithm.HS256)
+				.compact();
 	}
 
-	public String extractUsername(Jws<Claims> claims) {
-		Claims payload = claims.getPayload();
-		String subject = null;
-		if (null != payload)
-			subject = payload.getSubject();
-		return subject;
+	public String extractUsername(String token) {
+		return extractClaim(token, Claims::getSubject);
 	}
 
-	public long getExpiryTime(Jws<Claims> parsedToken) {
-		return parsedToken.getPayload().getExpiration().getTime();
+	public boolean validateToken(String token, UserDetails userDetails) {
+		final String username = extractUsername(token);
+		return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
 	}
 
-	// Extract Expiry Time
-	public Date getExpiration(String token) {
-		return getPayload(token).getExpiration();
+	private boolean isTokenExpired(String token) {
+		return extractExpiration(token).before(new Date());
 	}
 
-	// Validate & Parse JWT
-	public boolean validateToken(String token) {
-		if (token == null || token.isBlank()) {
-	        jwtUtilLogger.warn("Empty or null token received.");
-	        return false;
-	    }
+	public Date extractExpiration(String token) {
+		return extractClaim(token, Claims::getExpiration);
+	}
+
+	private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+		final Claims claims = extractAllClaims(token);
+		return claimsResolver.apply(claims);
+	}
+
+	private Claims extractAllClaims(String token) {
 		try {
-			Jws<Claims> claims = parseToken(token); // Step 1: Parse token (signature check)
-			// Step 2: Expiry validation
-			if (claims.getPayload().getExpiration().before(new Date())) {
-				jwtUtilLogger.warn("Token is expired.");
-				return false;
-			}
-			// Step 3: User validation
-			String userEmail = claims.getPayload().getSubject();
-			if (!userService.userExists(userEmail)) { // Use UserService
-				jwtUtilLogger.warn("Token validation failed: User does not exist.");
-				return false;
-			}
-			return true; // Token is valid
-		} catch (JwtException | IllegalArgumentException e) {
-			jwtUtilLogger.warn("Token validation failed: {}", e.getMessage());
-			return false;
+			return Jwts.parser()
+					.verifyWith(getSigningKey())
+					.build()
+					.parseSignedClaims(token)
+					.getPayload();
+		} catch (Exception e) {
+			jwtUtilLogger.error("Error parsing JWT token: {}", e.getMessage());
+			throw new InvalidJWTTokenException("Invalid token format");
 		}
 	}
 
@@ -170,5 +160,13 @@ public class JWTUtil {
 
 	private SecretKey getSigningKey() {
 		return signingKey;
+	}
+
+	/**
+	 * Get the refresh token expiration time in seconds
+	 * @return refresh token expiration time in seconds
+	 */
+	public long getRefreshExpiration() {
+		return refreshExpiration / 1000; // Convert milliseconds to seconds
 	}
 }

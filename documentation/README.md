@@ -17,10 +17,23 @@
    - OpenAPI specification in JSON format
    - Can be imported into Swagger UI or Postman
 
-4. **[JWT Configuration Guide](jwt_configuration.md)**
-   - Details about JWT token implementation
-   - Configuration properties and their usage
-   - Best practices for JWT secret management
+4. **[MongoDB Refresh Token Implementation](refresh_token_mongodb.md)**
+   - Detailed explanation of the MongoDB-based refresh token implementation
+   - Describes the token lifecycle and storage mechanism
+   - Documents classes and methods for token management
+   - Includes sequence diagrams for token flows
+
+5. **[Refresh Token Testing Guide](refresh_token_testing_guide.md)**
+   - Guide for testing the MongoDB refresh token implementation
+   - Includes curl commands, Postman collection setup
+   - Documentation for unit and integration tests
+   - MongoDB TTL index testing procedures
+
+6. **[OAuth 2.0 + OpenID Connect Implementation Guide](oauth_oidc_implementation.md)**
+   - Comprehensive guide for implementing OAuth 2.0 and OpenID Connect
+   - Explains core components and authentication flows
+   - Includes integration with Spring Security
+   - Provides comparison with JWT-only approach and migration strategy
 
 ## Additional Resources
 

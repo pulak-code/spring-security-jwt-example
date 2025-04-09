@@ -10,15 +10,25 @@ import org.springframework.stereotype.Repository;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
 
 @Repository
-public interface UserRepository extends MongoRepository<UserEntity, String>, CustomUserRepository {
+public interface UserRepository extends MongoRepository<UserEntity, String> {
 
 	boolean existsByEmail(String email);
+	
 	Optional<UserEntity> findByEmail(String email);
-	@Query("{ $or: [ " +
+	
+	/**
+	 * Find users by email or name, handling null/empty values more robustly.
+	 * This method replaces the custom repository implementation.
+	 * 
+	 * @param email The email to search for (can be null or empty)
+	 * @param name The name to search for (can be null or empty)
+	 * @return A list of matching users
+	 */
+	@Query(value = "{ $or: [ " +
 		   "  { email: { $regex: ?0, $options: 'i' } }, " +
 		   "  { name: { $regex: ?1, $options: 'i' } } " +
 		   "] }")
-	List<UserEntity> findByEmailContainingIgnoreCaseOrNameContainingIgnoreCase(String email, String name);
+	List<UserEntity> findByEmailOrNameSafely(String email, String name);
 	
 	@Query(value = "{ 'email': { $ne: ?0 } }", delete = true)
 	void deleteByEmailNot(String email);

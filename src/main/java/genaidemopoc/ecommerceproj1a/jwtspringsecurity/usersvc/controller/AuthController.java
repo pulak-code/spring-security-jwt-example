@@ -1,5 +1,7 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -25,11 +27,14 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import static genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.AppConstants.*;
 
 @RestController
-@RequestMapping(UserServiceConstants.API_AUTH_URL_ENDPOINT)
-@Tag(name = "Authentication", description = "Authentication operations including login, register, refresh token and logout")
+@RequestMapping(AUTH_BASE_PATH)
+@Tag(name = "Authentication", description = "Authentication management APIs")
 public class AuthController {
+
+	private static final Logger authControllerLogger = LoggerFactory.getLogger(AuthController.class);
 
 	private final AuthService authService;
 
@@ -38,17 +43,20 @@ public class AuthController {
 	}
 
 	@Operation(
-		summary = UserServiceConstants.REGISTER_USER, 
-		description = UserServiceConstants.REGISTERS_A_NEW_USER,
-		tags = {"Authentication"}
+		summary = "Register new user",
+		description = "Register a new user with email and password"
 	)
-	@ApiResponses(value = {
-		@ApiResponse(responseCode = "201", description = "User successfully registered"),
-		@ApiResponse(responseCode = "400", description = "Invalid input or user already exists"),
-		@ApiResponse(responseCode = "500", description = "Internal server error")
-	})
-	@PostMapping(UserServiceConstants.USER_ENDPOINT + UserServiceConstants.USER_REGISTER_ENDPOINT)
-	public ResponseEntity<AuthResponse> registerUser(@RequestBody @Valid UserRegisterRequest request) {
+	@ApiResponse(
+		responseCode = "200",
+		description = "User successfully registered"
+	)
+	@ApiResponse(
+		responseCode = "400",
+		description = "Invalid input data"
+	)
+	@PostMapping("/user/register")
+	public ResponseEntity<AuthResponse> registerUser(@Valid @RequestBody UserRegisterRequest request) {
+		authControllerLogger.info("Received user registration request for email: {}", request.getEmail());
 		AuthResponse createdUser = authService.registerUser(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
 	}

@@ -1,175 +1,163 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.config;
 
-import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Counter;
+import jakarta.annotation.PostConstruct;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.SecurityConstants;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.repository.UserRepository;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.authprovider.JwtAuthenticationProvider;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.filter.CorsFilter;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.authprovider.CustomAuthenticationProvider;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.filter.SecurityCorsFilter;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.filter.JWTAuthenticationFilter;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.model.CustomUserDetailsService;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.utilservice.JWTUtil;
+import lombok.RequiredArgsConstructor;
 
+/**
+ * Security configuration for the application.
+ * Handles authentication, authorization, and security headers.
+ */
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-	// Inject the custom user details service (loads user info from DB)
-	// @Lazy
-	private CustomUserDetailsService userDetailsService;
-	// Inject the custom JWT authentication filter for processing JWT tokens
-	private JWTAuthenticationFilter jwtAuthenticationFilter;
-	private final JWTUtil JwtUtil;
-	public SecurityConfig(JWTAuthenticationFilter jwtAuthenticationFilter, JWTUtil JwtUtil) {
-		this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-		this.JwtUtil = JwtUtil;
-	}
 
-	@Bean
-	UserDetailsService userDetailsService(UserRepository userRepo) {
-		return new CustomUserDetailsService(userRepo);
-	}
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
-	// Constructor injection ensures that these beans are provided by Spring
-	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-				// Disable CSRF protection for stateless REST APIs using JWT
-				.csrf(csrf -> csrf.disable())
-				// Configure authorization rules for different endpoints
-				.authorizeHttpRequests(auth -> auth
-						// Permit all requests to authentication endpoints
-						.requestMatchers(SecurityConstants.URL_ALL).permitAll()
-						.requestMatchers(
-				                "/swagger-ui/**",
-				                "/swagger-ui.html",
-				                "/v3/api-docs/**",
-				                "/v3/api-docs.yaml",
-				                "/test/**",  // Allow all test endpoints
-				                "/test/auth/register",
-				                "/test/auth/login",
-				                "/test/user/profile",
-				                "/rest-test/**", // Allow all rest-test endpoints
-				                "/rest-test/status", 
-				                "/rest-test/auth/register",
-				                "/rest-test/auth/login",
-				                "/rest-test/user/profile",
-				                "/debug/**",  // Allow all debug endpoints
-				                "/debug/status",
-				                "/debug/register",
-				                "/debug/login"
-				            ).permitAll()
-						.requestMatchers("/api/auth/user/register", "/api/auth/admin/register", 
-						                 "/api/auth/user/login", "/api/auth/admin/login",
-						                 // Also permit these variations for backward compatibility
-						                 "/api/auth/register", "/api/auth/login").permitAll()
-						// Restrict /admin/** endpoints to users with ROLE_ADMIN
-						.requestMatchers(SecurityConstants.URL_ALL_ADMIN).hasRole("ADMIN")
-						// Restrict /user/** endpoints to users with ROLE_USER
-						.requestMatchers(SecurityConstants.URL_ALL_USER).hasRole("USER")
-						// All other endpoints require authentication
-						.requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll() // Public health check
-						.requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN") // Protect all
-						// other Actuator endpoints
-						.anyRequest().authenticated())
-				// Enforce stateless session management (no server-side session)
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				// Set the custom authentication provider for DB-backed authentication
-				//.authenticationProvider(authenticationProvider(userDetailsService, null))
-				// Add the CORS filter to process tokens before the jwt auth filter n then
-				// standard authentication
-				.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
-				// Add the JWT filter to process tokens before the standard authentication
-				// filter
-				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-		// Build and return the security filter chain
-		return http.build();
-	}
+    private final CustomUserDetailsService userDetailsService;
+    private final JWTAuthenticationFilter jwtAuthenticationFilter;
+    private final JWTUtil jwtUtil;
+    private final CustomAuthenticationProvider authenticationProvider;
+    private final SecurityCorsFilter securityCorsFilter;
+    private final MeterRegistry meterRegistry;
 
-	// returns a bean of CORS filter
-	@Bean
-	CorsFilter corsFilter() {
-		return new CorsFilter();
-	}
+    private Counter authSuccessCounter;
+    private Counter authFailureCounter;
 
-//	@Bean
-//	AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService,
-//			PasswordEncoder passwordEncoder) {
-//		// Create a DAO authentication provider to retrieve user details from the DB
-//		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-//		authProvider.setUserDetailsService(userDetailsService);
-//		authProvider.setPasswordEncoder(passwordEncoder());
-//		return authProvider;
-//	}
+    @PostConstruct
+    public void initMetrics() {
+        authSuccessCounter = Counter.builder("security.authentication")
+            .description("Number of successful authentication attempts")
+            .tag("result", "success")
+            .register(meterRegistry);
 
-	@Bean
-    AuthenticationManager authenticationManager(
-            UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider();
-        daoAuthProvider.setUserDetailsService(userDetailsService);
-        daoAuthProvider.setPasswordEncoder(passwordEncoder);
-        JwtAuthenticationProvider jwtAuthProvider = new JwtAuthenticationProvider(userDetailsService, JwtUtil);
-        return new ProviderManager(List.of(daoAuthProvider, jwtAuthProvider));
+        authFailureCounter = Counter.builder("security.authentication")
+            .description("Number of failed authentication attempts")
+            .tag("result", "failure")
+            .register(meterRegistry);
+        
+        logger.info("Security metrics initialized");
     }
-	/*
-	 * DaoAuthenticationProvider retrieves user details from UserDetailsService and
-	 * validates credentials
-	 * 
-	 * InMemoryAuthenticationProvider Stores users in memory (via
-	 * InMemoryUserDetailsManager)
-	 * 
-	 * LdapAuthenticationProvider Authenticates users via an LDAP server (e.g.,
-	 * Active Directory)
-	 * 
-	 * OAuth2AuthenticationProvider Handles authentication via OAuth2 (e.g., Google,
-	 * GitHub)
-	 * 
-	 * JwtAuthenticationProvider uses JWT tokens for stateless authentication
-	 */
 
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(9); // here 9 is log rounds/cost factor/bcrypt strength, which determines how
-		// many times the hashing algorithm, it runs slightly more speed n
-		// slightly less secure than 10
-	}
+    /**
+     * Configures the main security filter chain with proper ordering of security features:
+     * 1. CORS/CSRF configuration
+     * 2. Security headers
+     * 3. Session management
+     * 4. Authorization rules
+     * 5. Authentication provider and filters
+     */
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+            // 1. CORS/CSRF Configuration
+            .cors().disable()  // CORS handled by SecurityCorsFilter
+            .csrf().disable()  // Disabled for stateless API
+            
+            // 2. Security Headers Configuration
+            .headers(headers -> headers
+                .frameOptions(frame -> frame.deny())  // Prevent clickjacking
+                .xssProtection(xss -> xss.enable())   // Enable XSS protection
+                .contentSecurityPolicy(csp ->         // Strict CSP
+                    csp.policyDirectives("default-src 'self'; frame-ancestors 'none';"))
+                .httpStrictTransportSecurity(hsts ->  // Force HTTPS
+                    hsts.includeSubDomains(true).maxAgeInSeconds(31536000))
+                .referrerPolicy(referrer -> referrer.strictOrigin())
+                .permissionsPolicy(permissions -> permissions.disable())
+            )
+            
+            // 3. Session Management
+            .sessionManagement(session -> 
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            )
+            // 4. Authorization Rules
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs.yaml"
+                ).permitAll()
+                // Authentication endpoints
+                .requestMatchers(
+                    "/api/auth/user/register",
+                    "/api/auth/admin/register",
+                    "/api/auth/user/login",
+                    "/api/auth/admin/login"
+                ).permitAll()
+                // Admin endpoints protection
+                .requestMatchers(SecurityConstants.URL_ALL_ADMIN).hasRole("ADMIN")
+                // User endpoints protection
+                .requestMatchers(SecurityConstants.URL_ALL_USER).hasRole("USER")
+                // Health check endpoint
+                .requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll()
+                // Protect all other actuator endpoints
+                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
+                // Require authentication for all other endpoints
+                .anyRequest().authenticated()
+            )
+            // 5. Authentication Provider and Filters
+            .authenticationProvider(authenticationProvider)
+            .addFilterBefore(
+                securityCorsFilter, 
+                UsernamePasswordAuthenticationFilter.class
+            )
+            .addFilterBefore(
+                jwtAuthenticationFilter, 
+                UsernamePasswordAuthenticationFilter.class
+            )
+            .build();
+    }
+    @Bean
+    public AuthenticationManager authenticationManager() {
+        logger.info("Initializing AuthenticationManager with CustomAuthenticationProvider");
+        return new ProviderManager(authenticationProvider);
+    }
 
-	/*
-	 * Encoder Strength Pros Cons Use Case
-	 * 
-	 * BCryptPasswordEncoder Strong Secure, uses a random salt, resists brute-force
-	 * attacks Slightly slower (intentional for security) Recommended for most
-	 * applications
-	 * 
-	 * Argon2PasswordEncoder Very Strong Advanced key derivation function, resists
-	 * side-channel attacks Requires extra dependencies If high security is needed
-	 * (e.g., banking apps)
-	 * 
-	 * PBKDF2PasswordEncoder Strong Used in NIST standards, good resistance against
-	 * brute-force Can be slower if iteration count is high High-security
-	 * applications
-	 * 
-	 * SCryptPasswordEncoder Very Strong Memory-intensive, good against GPU attacks
-	 * Requires extra resources If memory-hardness is needed
-	 * 
-	 * MessageDigestPasswordEncoder (MD5, SHA-256) Weak Fast Not secure against
-	 * brute-force attacks ❌ Not recommended NoOpPasswordEncoder ❌ No security Just
-	 * returns plain text No encryption! Only for testing (Not for production)
-	 */
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(12); // Increased strength from default 10
+    }
+
+    /**
+     * Increment success counter for metrics
+     */
+    public void recordAuthenticationSuccess() {
+        authSuccessCounter.increment();
+        logger.debug("Authentication success recorded");
+    }
+
+    /**
+     * Increment failure counter for metrics
+     */
+    public void recordAuthenticationFailure() {
+        authFailureCounter.increment();
+        logger.debug("Authentication failure recorded");
+    }
 }

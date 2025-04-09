@@ -24,6 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.repository.UserRepository;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.impl.AdminServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class AdminServiceImplTest {
