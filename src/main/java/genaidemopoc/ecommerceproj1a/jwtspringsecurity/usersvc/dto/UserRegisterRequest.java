@@ -1,55 +1,40 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto;
 
 import java.util.List;
-
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.MessageUserServiceConstants;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.ValidationConstants;
 
-@Data
+/**
+ * Data Transfer Object for user registration requests.
+ * Extends BaseUserRequest to inherit email and password fields.
+ */
+@Getter
+@Setter
 @SuperBuilder
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 public class UserRegisterRequest extends BaseUserRequest {
+    
+    @NotBlank(message = ValidationConstants.NAME_REQUIRED)
+    @Size(min = ValidationConstants.MIN_NAME_LENGTH, max = ValidationConstants.MAX_NAME_LENGTH, message = ValidationConstants.NAME_LENGTH)
+    @Pattern(regexp = ValidationConstants.NAME_PATTERN, message = ValidationConstants.NAME_INVALID)
+    private String name;
 
-	public UserRegisterRequest(
-			@NotBlank(message = MessageUserServiceConstants.EMAIL_IS_REQUIRED) @Email(message = MessageUserServiceConstants.INVALID_EMAIL_FORMAT) String email,
-			@NotBlank(message = MessageUserServiceConstants.PASSWORD_IS_REQUIRED) String password) {
-		super(email, password);
-	}
+    private String address;
 
-	@NotBlank(message = MessageUserServiceConstants.NAME_IS_REQUIRED)
-	private String name;
+    private List<String> roles;
 
-	private String address;
+    public UserRegisterRequest() {
+        super();
+    }
 
-	private List<String> roles;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public List<String> getRoles() {
-		return roles;
-	}
-	
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
+    public UserRegisterRequest(String email, String password, String name, String address, List<String> roles) {
+        super(email, password);
+        this.name = name;
+        this.address = address;
+        this.roles = roles;
+    }
 }

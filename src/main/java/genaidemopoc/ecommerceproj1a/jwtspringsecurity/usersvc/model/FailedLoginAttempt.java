@@ -2,12 +2,11 @@ package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,11 +14,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "failed_login_attempts", indexes = {
-    @jakarta.persistence.Index(name = "idx_failed_login_email", columnList = "email", unique = true),
-    @jakarta.persistence.Index(name = "idx_failed_login_locked", columnList = "is_locked")
-})
+@Document(collection = "failed_login_attempts")
 @Data
 @Builder
 @NoArgsConstructor
@@ -27,35 +22,52 @@ import lombok.NoArgsConstructor;
 public class FailedLoginAttempt {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotNull
     @Email
-    @Column(unique = true)
+    @Indexed(unique = true)
     private String email;
 
     @NotNull
-    @Column(name = "attempt_count")
+    @Field("attempt_count")
     @Builder.Default
     private Integer attempts = 0;
 
-    @Column(name = "last_attempt")
+    @Field("last_attempt")
     private LocalDateTime lastFailedAttempt;
 
-    @Column(name = "lockout_end")
+    @Field("lockout_end")
     private LocalDateTime lockoutEndTime;
 
     @NotNull
-    @Column(name = "is_locked")
+    @Field("is_locked")
     @Builder.Default
     private Boolean isLocked = false;
 
     @NotNull
-    @Column(name = "created_at")
+    @Field("created_at")
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "updated_at")
+    @Field("updated_at")
     private LocalDateTime updatedAt;
+    
+    /**
+     * Checks if the account is locked due to failed login attempts.
+     *
+     * @return true if the account is locked, false otherwise
+     */
+    public boolean isLocked() {
+        return isLocked;
+    }
+    
+    /**
+     * Sets the locked status of the account.
+     *
+     * @param locked true to lock the account, false to unlock it
+     */
+    public void setLocked(boolean locked) {
+        this.isLocked = locked;
+    }
 }

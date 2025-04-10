@@ -19,8 +19,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.InvalidJWTTokenException;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.SecurityConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.InvalidJWTTokenException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.KeyGenerationException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.UserService;
@@ -28,41 +28,52 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.lang.Collections;
 import io.jsonwebtoken.security.Keys;
+import java.util.Collections;
+import java.nio.charset.StandardCharsets;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import io.jsonwebtoken.security.SignatureException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class JWTUtil {
 	private static final Logger jwtUtilLogger = LoggerFactory.getLogger(JWTUtil.class);
-	private SecretKey signingKey;
-	@Value("${jwt.secret}")
-	private String secretKey;
 	@Value("${jwt.expiration}")
-	private long jwtExpiration;
+	private long jwtExpirationMs;
 	@Value("${jwt.refresh-token.expiration}")
-	private long refreshExpiration;
+	private long refreshTokenExpirationMs;
 	private final UserService userService;
 
-	// Constructor: loads existing secret or generates new one if missing.
-	public JWTUtil(@Value("${jwt.secret.key:}") String secretKeyProperty, @Lazy UserService userService) {
-		signingKey = getNewSigningKey(secretKeyProperty);
+	@Value("${jwt.secret}")
+	private String jwtSecret;
+	private SecretKey key;
+
+	public JWTUtil(@Lazy UserService userService) {
 		this.userService = userService;
 	}
 
-	// Inner class to hold token validation results
-	private String createJwtToken(Map<String, Object> claims, long expiryTime) {
-		return Jwts.builder().claims(claims).issuedAt(new Date())
-				.expiration(new Date(System.currentTimeMillis() + expiryTime)).signWith(getSigningKey()).compact();
+	@PostConstruct
+	public void init() {
+		try {
+			byte[] decodedKey = Base64.getDecoder().decode(jwtSecret);
+			this.key = Keys.hmacShaKeyFor(decodedKey);
+			jwtUtilLogger.info("JWT Secret Key initialized successfully.");
+		} catch (IllegalArgumentException e) {
+			jwtUtilLogger.error("Error initializing JWT key: {}", e.getMessage());
+			throw new RuntimeException("Failed to initialize JWT key due to invalid Base64 secret", e);
+		}
 	}
 
-	// Generate Access Token (Includes user claims)
 	public String generateAccessToken(String userEmail) {
-		return generateToken(new HashMap<>(), userEmail, jwtExpiration);
+		return generateToken(new HashMap<>(), userEmail, jwtExpirationMs);
 	}
 
-	// Generate Refresh Token (Minimal claims)
-	public String generateRefreshToken() {
-		return generateToken(new HashMap<>(), UUID.randomUUID().toString(), refreshExpiration);
+	public String generateRefreshToken(String userEmail) {
+		return generateToken(new HashMap<>(), userEmail, refreshTokenExpirationMs);
 	}
 
 	private String generateToken(Map<String, Object> extraClaims, String subject, long expiration) {
@@ -71,7 +82,7 @@ public class JWTUtil {
 				.setSubject(subject)
 				.setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + expiration))
-				.signWith(getSigningKey(), SignatureAlgorithm.HS256)
+				.signWith(key, SignatureAlgorithm.HS256)
 				.compact();
 	}
 
@@ -99,74 +110,33 @@ public class JWTUtil {
 
 	private Claims extractAllClaims(String token) {
 		try {
-			return Jwts.parser()
-					.verifyWith(getSigningKey())
+			return Jwts.parserBuilder()
+					.setSigningKey(key)
 					.build()
-					.parseSignedClaims(token)
-					.getPayload();
+					.parseClaimsJws(token)
+					.getBody();
 		} catch (Exception e) {
 			jwtUtilLogger.error("Error parsing JWT token: {}", e.getMessage());
 			throw new InvalidJWTTokenException("Invalid token format");
 		}
 	}
 
-	// Format Roles Properly
-	private List<String> getFormattedRoles(UserEntity user) {
-		return Optional.ofNullable(user.getRoles()).orElse(Collections.emptyList()).stream()
-				.map(role -> role.startsWith("ROLE_") ? role : "ROLE_" + role.toUpperCase()).toList();
-	}
-
-	// Generate a new secret key (Base64-encoded) if not provided
-	private String generateSecretKey() {
-		try {
-			KeyGenerator keyGenerator = KeyGenerator.getInstance(UserServiceConstants.KEYGEN_HASHALGO);
-			keyGenerator.init(256); // 256-bit key
-			byte[] encodedSecretKey = keyGenerator.generateKey().getEncoded();
-			return Base64.getEncoder().encodeToString(encodedSecretKey);
-		} catch (Exception e) {
-			throw new KeyGenerationException(UserServiceConstants.ERROR_GENERATING_KEY, e);
-		}
-	}
-
-	// Convert the Base64 secret string into a SecretKey
-	private SecretKey getNewSigningKey(String secretKeyProperty) {
-		byte[] decodeKey = Base64.getDecoder().decode(secretKeyProperty);
-		return Keys.hmacShaKeyFor(decodeKey);
-	}
-
 	public static Optional<String> preProcessingTokenChecks(Optional<String> authHeader) {
-		return authHeader.filter(header -> header.startsWith("Bearer ")) // Check if it starts with "Bearer "
-				.map(header -> header.substring(7)) // Extract the token after "Bearer "
+		return authHeader.filter(header -> header.startsWith("Bearer "))
+				.map(header -> header.substring(7))
 				.filter(token -> !token.isBlank());
 	}
 
-	public UserEntity extractUser(String token) {
-		Claims payload = getPayload(token);
-		String subject = null;
-		if (null != payload)
-			subject = payload.getSubject();
-		return userService.getUserByEmail(subject);
-	}
-
 	public Claims getPayload(String token) {
-		return Optional.ofNullable(parseToken(token)).map(Jws::getPayload)
+		return Optional.ofNullable(parseToken(token)).map(Jws::getBody)
 				.orElseThrow(() -> new InvalidJWTTokenException("Invalid or malformed token"));
 	}
 
 	public Jws<Claims> parseToken(String token) {
-		return Jwts.parser().verifyWith(getSigningKey()).build().parseSignedClaims(token); // Parses and verifies
-																							// token signature
+		return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
 	}
 
-	private SecretKey getSigningKey() {
-		return signingKey;
-	}
-
-	/**
-	 * Get the refresh token expiration time in seconds
-	 * @return refresh token expiration time in seconds
-	 */
-	public long getRefreshExpiration() {
-		return refreshExpiration / 1000; // Convert milliseconds to seconds
+	public long getRefreshTokenExpirationSeconds() {
+		return refreshTokenExpirationMs / 1000;
 	}
 }

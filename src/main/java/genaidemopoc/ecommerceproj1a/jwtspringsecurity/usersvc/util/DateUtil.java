@@ -6,9 +6,14 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DateUtil extends AppUtil {
+
+	private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
+	private static final String DATE_FORMAT_PATTERN = AppConstants.DATE_FORMAT;
 
 	/**
 	 * Formats a date into a string with the standard format (yyyy-MM-dd).
@@ -17,14 +22,14 @@ public class DateUtil extends AppUtil {
 	 * @return formatted date as string, or null if the date is null
 	 */
 	private DateUtil() {
-		throw new IllegalStateException(UserServiceConstants.UTILITY_CLASS);
+		throw new IllegalStateException(AppConstants.UTILITY_CLASS);
 	}
 
 	public static String formatDate(Date date) {
 		if (date == null) {
 			return null;
 		}
-		SimpleDateFormat formatter = new SimpleDateFormat(UserServiceConstants.DATE_FORMAT);
+		SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_PATTERN);
 		return formatter.format(date);
 	}
 
@@ -40,7 +45,7 @@ public class DateUtil extends AppUtil {
 			return null;
 		}
 		try {
-			SimpleDateFormat formatter = new SimpleDateFormat(UserServiceConstants.DATE_FORMAT);
+			SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT_PATTERN);
 			return formatter.parse(dateString);
 		} catch (ParseException e) {
 			return null;

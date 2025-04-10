@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      database: UserDb_test
+      auto-index-creation: true
+
+security:
+  jwt:
+    secret-key: test-secret-key-for-integration-suite
+    expiration-ms: 60000  # 1 minute for faster testing
+    refresh-expiration-ms: 300000  # 5 minutes for testing
+  lockout:
+    max-attempts: 3  # Lower threshold for testing
+    duration: PT1M  # Shorter duration for testing
+    initial-delay: PT1S
+    max-delay: PT5S
+

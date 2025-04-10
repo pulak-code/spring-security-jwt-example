@@ -52,8 +52,6 @@ public class SecurityCorsFilter extends OncePerRequestFilter {
                     String.join(",", corsConfig.getAllowedHeaders()));
                 response.setHeader("Access-Control-Expose-Headers", 
                     String.join(",", corsConfig.getExposedHeaders()));
-                response.setHeader("Access-Control-Allow-Credentials", 
-                    corsConfig.getAllowCredentials().toString());
                 response.setHeader("Access-Control-Max-Age", 
                     corsConfig.getMaxAge().toString());
 

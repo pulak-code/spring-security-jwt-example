@@ -4,21 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.MessageUserServiceConstants;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.SecurityConstants;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.SecurityConstants;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.AuthResponse;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserLoginRequest;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.LoginRequest;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserRegisterRequest;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.InvalidJWTTokenException;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.InvalidJWTTokenException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -27,15 +20,13 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import static genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.AppConstants.*;
 
 @RestController
-@RequestMapping(AUTH_BASE_PATH)
-@Tag(name = "Authentication", description = "Authentication management APIs")
+@RequestMapping(AppConstants.AUTH_BASE_PATH)
+@Tag(name = "Authentication", description = AppConstants.API_LOGIN_USER_DESC)
 public class AuthController {
 
 	private static final Logger authControllerLogger = LoggerFactory.getLogger(AuthController.class);
-
 	private final AuthService authService;
 
 	public AuthController(AuthService service) {
@@ -43,16 +34,16 @@ public class AuthController {
 	}
 
 	@Operation(
-		summary = "Register new user",
-		description = "Register a new user with email and password"
+		summary = AppConstants.REGISTER_USER,
+		description = AppConstants.API_REGISTER_USER_DESC
 	)
 	@ApiResponse(
 		responseCode = "200",
-		description = "User successfully registered"
+		description = AppConstants.USER_REGISTERED_SUCCESS
 	)
 	@ApiResponse(
 		responseCode = "400",
-		description = "Invalid input data"
+		description = AppConstants.BAD_REQUEST
 	)
 	@PostMapping("/user/register")
 	public ResponseEntity<AuthResponse> registerUser(@Valid @RequestBody UserRegisterRequest request) {
@@ -62,122 +53,85 @@ public class AuthController {
 	}
 
 	@Operation(
-		summary = UserServiceConstants.USER_LOGIN, 
-		description = UserServiceConstants.AUTHENTICATES_A_USER_AND_RETURNS_JWT_TOKEN,
-		tags = {"Authentication"}
+		summary = AppConstants.USER_LOGIN,
+		description = AppConstants.API_LOGIN_USER_DESC
 	)
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Authentication successful"),
-		@ApiResponse(responseCode = "401", description = "Invalid credentials"),
-		@ApiResponse(responseCode = "500", description = "Internal server error")
+		@ApiResponse(responseCode = "200", description = SecurityConstants.SUCCESS_AUTHENTICATED),
+		@ApiResponse(responseCode = "401", description = AppConstants.INVALID_CREDENTIALS),
+		@ApiResponse(responseCode = "500", description = AppConstants.INTERNAL_SERVER_ERROR)
 	})
-	@PostMapping(UserServiceConstants.USER_ENDPOINT + UserServiceConstants.USER_LOGIN_ENDPOINT)
-	public ResponseEntity<AuthResponse> authenticateUser(@RequestBody UserLoginRequest loginRequest,
-			HttpServletResponse response) {
+	@PostMapping("/user/login")
+	public ResponseEntity<AuthResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response) {
+		authControllerLogger.info("Received login request for email: {}", loginRequest.getEmail());
 		AuthResponse authResponse = authService.authenticateUser(loginRequest, response);
-		// Generate JWT token
-	    String jwtToken = authResponse.getAccessToken();
-	    // Set token in the response header (optional, for frontend convenience)
-	    response.setHeader(SecurityConstants.AUTHORIZATION, SecurityConstants.BEARER + jwtToken);
-
-	    // Return the token in the response body as well
-	    return ResponseEntity.ok(authResponse);
+		String jwtToken = authResponse.getAccessToken();
+		response.setHeader(SecurityConstants.AUTHORIZATION, SecurityConstants.TOKEN_PREFIX + jwtToken);
+		return ResponseEntity.ok(authResponse);
 	}
 
 	@Operation(
-		summary = "Refresh access token", 
-		description = "Generates a new access token using the refresh token",
-		tags = {"Authentication"}
+		summary = "Refresh access token",
+		description = AppConstants.API_REFRESH_TOKEN_DESC
 	)
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Token refreshed successfully"),
-		@ApiResponse(responseCode = "401", description = "Invalid or expired refresh token"),
-		@ApiResponse(responseCode = "500", description = "Internal server error")
+		@ApiResponse(responseCode = "200", description = AppConstants.TOKEN_REFRESHED_SUCCESS),
+		@ApiResponse(responseCode = "401", description = AppConstants.REFRESH_TOKEN_INVALID),
+		@ApiResponse(responseCode = "500", description = AppConstants.INTERNAL_SERVER_ERROR)
 	})
 	@PostMapping("/refresh-token")
 	public ResponseEntity<AuthResponse> refreshToken(
 			@CookieValue(value = SecurityConstants.REFRESH_TOKEN_COOKIE, required = false) String refreshToken, HttpServletResponse response) {
 		if (refreshToken == null)
-			throw new InvalidJWTTokenException(MessageUserServiceConstants.REFRESH_TOKEN_INVALID);
+			throw new InvalidJWTTokenException(AppConstants.REFRESH_TOKEN_INVALID);
 		AuthResponse authResponse = authService.refreshAccessTokens(refreshToken, response);
 		return ResponseEntity.ok(authResponse);
 	}
 
 	@Operation(
-		summary = "Logout user", 
-		description = "Invalidates the current access token by adding it to the blacklist",
-		security = { @SecurityRequirement(name = "Bearer Authentication") },
-		tags = {"Authentication"}
+		summary = "Logout user",
+		description = AppConstants.API_LOGOUT_DESC,
+		security = { @SecurityRequirement(name = SecurityConstants.AUTHORIZATION) }
 	)
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Logged out successfully"),
-		@ApiResponse(responseCode = "401", description = "Invalid or missing token"),
-		@ApiResponse(responseCode = "500", description = "Internal server error")
+		@ApiResponse(responseCode = "200", description = AppConstants.USER_LOGOUT_SUCCESS),
+		@ApiResponse(responseCode = "401", description = SecurityConstants.ERROR_INVALID_TOKEN),
+		@ApiResponse(responseCode = "500", description = AppConstants.INTERNAL_SERVER_ERROR)
 	})
 	@PostMapping("/logout")
-	public ResponseEntity<String> logout(@RequestHeader(UserServiceConstants.AUTHORIZATION) String authHeader) {
+	public ResponseEntity<String> logout(@RequestHeader(SecurityConstants.AUTHORIZATION) String authHeader) {
 		authService.logout(authHeader);
-		return ResponseEntity.ok(MessageUserServiceConstants.LOGOUT_SUCCESS);
+		return ResponseEntity.ok(AppConstants.USER_LOGOUT_SUCCESS);
 	}
 
 	@Operation(
-		summary = "Logout from all devices", 
-		description = "Invalidates all sessions by blacklisting all tokens",
-		security = { @SecurityRequirement(name = "Bearer Authentication") },
-		tags = {"Authentication"}
+		summary = "Logout from all devices",
+		description = AppConstants.API_LOGOUT_ALL_DESC,
+		security = { @SecurityRequirement(name = SecurityConstants.AUTHORIZATION) }
 	)
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Logged out from all devices successfully"),
-		@ApiResponse(responseCode = "401", description = "Invalid or missing token"),
-		@ApiResponse(responseCode = "500", description = "Internal server error")
+		@ApiResponse(responseCode = "200", description = AppConstants.USER_LOGOUT_ALL_SUCCESS),
+		@ApiResponse(responseCode = "401", description = SecurityConstants.ERROR_INVALID_TOKEN),
+		@ApiResponse(responseCode = "500", description = AppConstants.INTERNAL_SERVER_ERROR)
 	})
-	/**
-	 * Logs out a user from all devices by invalidating all refresh tokens.
-	 * This endpoint accepts the refresh token in multiple ways:
-	 * 1. From an HTTP-only cookie (for browser clients)
-	 * 2. From a "Refresh-Token" header (for API clients)
-	 * 3. From a URL parameter named "refreshToken" (alternative method)
-	 *
-	 * @param cookieRefreshToken Refresh token from HTTP-only cookie
-	 * @param headerRefreshToken Refresh token from request header
-	 * @param paramRefreshToken Refresh token from URL parameter
-	 * @return ResponseEntity with success message or error response
-	 */
 	@PostMapping("/logout-all")
 	public ResponseEntity<String> logoutAll(
 			@CookieValue(name = SecurityConstants.REFRESH_TOKEN_COOKIE, required = false) String cookieRefreshToken,
 			@RequestHeader(value = "Refresh-Token", required = false) String headerRefreshToken,
 			@RequestParam(value = "refreshToken", required = false) String paramRefreshToken)
-		//	,@RequestHeader(value = UserServiceConstants.AUTHORIZATION, required = false) String authHeader) {
 		{
-		// Try to get refresh token from any available source
 		String refreshToken = cookieRefreshToken;
-		
-		// If not in cookie, check header
 		if (refreshToken == null || refreshToken.isBlank()) {
 			refreshToken = headerRefreshToken;
 		}
-		
-		// If not in header, check request parameter
 		if (refreshToken == null || refreshToken.isBlank()) {
 			refreshToken = paramRefreshToken;
 		}
 		
-		// If still not found, check for access token in Authorization header
-		/*if ((refreshToken == null || refreshToken.isBlank()) && authHeader != null && authHeader.startsWith("Bearer ")) {
-			// If no refresh token found but we have an access token, use it
-			String accessToken = authHeader.substring(7);
-			authService.logout(authHeader); // Use the regular logout with the auth header
-			return ResponseEntity.ok("Logged out from all devices using current session token");
-		}
-		*/
-		// If no token found at all
 		if (refreshToken == null || refreshToken.isBlank()) {
-			throw new InvalidJWTTokenException(MessageUserServiceConstants.TOKEN_MISSING);
+			throw new InvalidJWTTokenException(AppConstants.REFRESH_TOKEN_MISSING);
 		}
-		
 		authService.logoutAll(refreshToken);
-		return ResponseEntity.ok("Logged out from all devices");
+		return ResponseEntity.ok(AppConstants.USER_LOGOUT_ALL_SUCCESS);
 	}
-
 }

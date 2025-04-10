@@ -1,15 +1,15 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.ValidationConstants;
 
 public class InvalidEmailException extends RuntimeException {
 
 	private static final long serialVersionUID = 7L;
-	public InvalidEmailException(String format) {
-		super(String.format(UserServiceConstants.INVALID_EMAIL_FORMAT, format));
+	public InvalidEmailException(String email) {
+		super(String.format(ValidationConstants.EMAIL_INVALID_FORMAT, email));
 	}
 	
 	public InvalidEmailException() {
-        super(UserServiceConstants.INVALID_EMAIL);  
+        super(ValidationConstants.EMAIL_INVALID);
     }
 }

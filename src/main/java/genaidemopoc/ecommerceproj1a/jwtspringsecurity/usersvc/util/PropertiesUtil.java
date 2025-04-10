@@ -3,6 +3,7 @@ package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.util;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Base64;
 import java.util.Properties;
 
@@ -13,19 +14,37 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 
 @Component
 @PropertySource("classpath:application.properties")
 public class PropertiesUtil {
 	private static final Logger propsUtilLogger = LoggerFactory.getLogger(PropertiesUtil.class);
-	private static final String PROP_FILE_PATH = UserServiceConstants.FILE_LOCATION;
+	private static final String PROPERTIES_FILE_PATH = AppConstants.FILE_LOCATION;
+	private static final Properties properties = new Properties();
 	
 	@Autowired
 	private Environment env;
 
-	private PropertiesUtil() {
-		// Private constructor to prevent instantiation
+	static {
+		loadProperties();
+	}
+
+	private static void loadProperties() {
+		try (InputStream input = PropertiesUtil.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE_PATH.replace("classpath:", ""))) {
+			if (input == null) {
+				propsUtilLogger.error("Sorry, unable to find " + PROPERTIES_FILE_PATH);
+				return;
+			}
+			properties.load(input);
+			propsUtilLogger.info("Properties file loaded successfully from: {}", PROPERTIES_FILE_PATH);
+		} catch (IOException ex) {
+			propsUtilLogger.error("Error loading properties file: {}", PROPERTIES_FILE_PATH, ex);
+		}
+	}
+
+	public PropertiesUtil() {
+		// Default constructor for Spring
 	}
 	
 	/**
@@ -39,7 +58,7 @@ public class PropertiesUtil {
 		try {
 			// First load existing properties
 			Properties props = new Properties();
-			try (FileInputStream fis = new FileInputStream(PROP_FILE_PATH)) {
+			try (FileInputStream fis = new FileInputStream(PROPERTIES_FILE_PATH)) {
 				props.load(fis);
 			} catch (IOException e) {
 				propsUtilLogger.warn("Could not load existing properties file: {}", e.getMessage());
@@ -49,7 +68,7 @@ public class PropertiesUtil {
 			props.setProperty(key, value);
 			
 			// Save properties back to file
-			try (FileWriter fw = new FileWriter(PROP_FILE_PATH)) {
+			try (FileWriter fw = new FileWriter(PROPERTIES_FILE_PATH)) {
 				props.store(fw, comment);
 				propsUtilLogger.info("Successfully saved property: {}", key);
 			}

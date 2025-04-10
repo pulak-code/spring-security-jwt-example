@@ -1,15 +1,15 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 
 public class UserNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
-	public UserNotFoundException(String userId) {
-		super(String.format(UserServiceConstants.USER_NOT_FOUND_WITH_ID, userId));
+	public UserNotFoundException(String identifier) {
+		super(String.format(AppConstants.USER_NOT_FOUND_WITH_ID, identifier));
 	}
 	
 	public UserNotFoundException() {
-        super(UserServiceConstants.USER_NOT_FOUND);  
+        super(AppConstants.USER_NOT_FOUND);  
     }
 }

@@ -6,16 +6,19 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.TokenResponse;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.InvalidJWTTokenException;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.InvalidRefreshTokenException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.RefreshToken;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.repository.RefreshTokenRepository;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.utilservice.JWTUtil;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.RefreshTokenService;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 
 /**
  * Implementation of RefreshTokenService interface
@@ -32,14 +35,20 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     @Autowired
     private JWTUtil jwtUtil;
 
+    @Value("${jwt.refresh-token.expiration}")
+    private Long refreshTokenDurationMs;
+
     @Override
     @Transactional
     public RefreshToken createRefreshToken(String userId, String userEmail, String tokenValue, Instant expiryDate) {
-        log.debug("Creating refresh token for user: {}", userEmail);
+        log.debug("Creating refresh token for user: {}", userId);
         
-        RefreshToken refreshToken = new RefreshToken(tokenValue, userId, userEmail, expiryDate);
+        RefreshToken refreshToken = new RefreshToken();
+        refreshToken.setUserId(userId);
+        refreshToken.setUserEmail(userEmail);
+        refreshToken.setToken(tokenValue);
         refreshToken.setCreatedAt(Instant.now());
-        
+        refreshToken.setExpiryDate(expiryDate);
         return refreshTokenRepository.save(refreshToken);
     }
 
@@ -119,7 +128,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         String newAccessToken = jwtUtil.generateAccessToken(userEmail);
         
         // Generate new refresh token
-        String newRefreshToken = jwtUtil.generateRefreshToken();
+        String newRefreshToken = jwtUtil.generateRefreshToken(userEmail);
         
         // Save new refresh token
         saveRefreshToken(newRefreshToken, token.getUserId(), userEmail);
@@ -148,7 +157,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     @Transactional
     public void saveRefreshToken(String token, String userId, String userEmail) {
         log.debug("Saving refresh token for user: {}", userEmail);
-        Instant expiryDate = Instant.now().plusSeconds(jwtUtil.getRefreshExpiration());
+        Instant expiryDate = Instant.now().plusSeconds(jwtUtil.getRefreshTokenExpirationSeconds());
         createRefreshToken(userId, userEmail, token, expiryDate);
     }
 } 

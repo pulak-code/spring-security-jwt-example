@@ -12,7 +12,7 @@ public interface AuthService {
 	/**
 	 * Authenticate User & Generate JWT (Access + Refresh Tokens)
 	 */
-	AuthResponse authenticateUser(UserLoginRequest loginRequest, HttpServletResponse response);
+	AuthResponse authenticateUser(LoginRequest loginRequest, HttpServletResponse response);
 
 	/**
 	 * Register a New User

@@ -1,17 +1,17 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 
 public class UserAlreadyExistsException extends RuntimeException {
 	
 	private static final long serialVersionUID = 2L;
 
-	public UserAlreadyExistsException(String format) {
-		super(String.format(UserServiceConstants.USER_ALREADY_EXISTS, format));
+	public UserAlreadyExistsException(String email) {
+		super(String.format(AppConstants.USER_EMAIL_ALREADY_EXISTS, email));
 	}
 	
 	public UserAlreadyExistsException() {
-        super(UserServiceConstants.USER_ALREADY_EXISTS);  
+        super(AppConstants.USER_ALREADY_EXISTS);  
     }
 	
 }

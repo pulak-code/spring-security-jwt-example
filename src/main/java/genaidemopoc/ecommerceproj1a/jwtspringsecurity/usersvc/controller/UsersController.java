@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserSelfEditRequest;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.UnauthorizedAccessException;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.UnauthorizedAccessException;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,21 +27,25 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping(UserServiceConstants.API_USERS_URL_ENDPOINT)
+@RequestMapping(AppConstants.API_USERS_URL_ENDPOINT)
 @Tag(name = "User Management", description = "Operations for regular user management and profile access")
 public class UsersController {
 
 	private final UserService userService;
+	private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
 
 	public UsersController(UserService service) {
 		this.userService = service;
 	}
 
 	@Operation(
-		summary = UserServiceConstants.GET_USER_BY_ID, 
-		description = UserServiceConstants.FETCH_A_USER_USING_THEIR_ID,
+		summary = AppConstants.GET_USER_BY_ID, 
+		description = AppConstants.FETCH_A_USER_USING_THEIR_ID,
 		security = { @SecurityRequirement(name = "Bearer Authentication") }
 	)
 	@ApiResponses(value = {
@@ -52,34 +56,13 @@ public class UsersController {
 		@ApiResponse(responseCode = "404", description = "User not found")
 	})
 	@PreAuthorize("hasAuthority('ROLE_USER')")
-	@GetMapping(UserServiceConstants.USER_ENDPOINT + "/{id}")
+	@GetMapping(AppConstants.USER_ENDPOINT + "/{id}")
 	public ResponseEntity<UserEntity> getUserById(@PathVariable String id) {
+		logger.info("Fetching user by ID: {}", id);
 		UserEntity user = userService.getUserById(id);
 		return ResponseEntity.ok(user);
 	}
 
-	@Operation(
-		summary = "Delete User", 
-		description = "Deletes a user by their email (admin or self-deletion)",
-		security = { @SecurityRequirement(name = "Bearer Authentication") }
-	)
-	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "User deleted successfully"),
-		@ApiResponse(responseCode = "401", description = "Unauthorized"),
-		@ApiResponse(responseCode = "403", description = "Forbidden - can only delete own account or requires admin role"),
-		@ApiResponse(responseCode = "404", description = "User not found")
-	})
-	@PreAuthorize("hasAuthority('ROLE_ADMIN') or #email == authentication.principal.username")
-	@DeleteMapping("/users/{email}")
-	public ResponseEntity<?> deleteUser(@PathVariable String email, Authentication authentication) {
-	    UserEntity requestingUser = (UserEntity) authentication.getPrincipal();
-	    if (requestingUser.getEmail().equals(email) || requestingUser.getRoles().contains("ROLE_ADMIN")) {
-	        userService.deleteUser(email);
-	        return ResponseEntity.ok("User deleted successfully");
-	    }
-	    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You can only delete your own account.");
-	}
-	
 	@Operation(
 		summary = "Edit User Details", 
 		description = "Edit user details (user only)",
@@ -94,9 +77,9 @@ public class UsersController {
 		@ApiResponse(responseCode = "404", description = "User not found")
 	})
 	@PreAuthorize("hasAuthority('ROLE_USER')")
-	@PatchMapping(UserServiceConstants.USER_ENDPOINT + "/{id}")
-	public ResponseEntity<UserEntity> editUserDetails(@PathVariable String id,
-			@RequestBody @Valid UserSelfEditRequest request) {
+	@PatchMapping(AppConstants.USER_ENDPOINT + "/{id}")
+	public ResponseEntity<UserEntity> editUserDetails(@PathVariable String id, @RequestBody @Valid UserSelfEditRequest request) {
+		logger.info("Editing user details for ID: {}", id);
 		UserEntity updatedUser = userService.editUserDetails(id, request);
 		return ResponseEntity.ok(updatedUser);
 	}

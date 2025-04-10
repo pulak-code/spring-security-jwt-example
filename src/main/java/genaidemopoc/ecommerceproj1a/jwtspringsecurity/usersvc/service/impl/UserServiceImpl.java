@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserRegisterRequest;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserSelfEditRequest;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.dto.UserUpdateRequest;
@@ -19,23 +19,20 @@ import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.exception.custom.U
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.model.UserEntity;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.repository.UserRepository;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.service.UserService;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
 	private static final Logger userServiceLogger = LoggerFactory.getLogger(UserServiceImpl.class);
-	private UserRepository userRepository;
-	private PasswordEncoder passwordEncoder;
-
-	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passEncoder) {
-		this.userRepository = userRepository;
-		this.passwordEncoder = passEncoder;
-	}
+	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserEntity getUserById(String userId) {
 		return userRepository.findById(userId)
-				.orElseThrow(() -> new UserNotFoundException(String.format(UserServiceConstants.USER_NOT_FOUND_WITH_ID, userId)));
+				.orElseThrow(() -> new UserNotFoundException(String.format(AppConstants.USER_NOT_FOUND_WITH_ID, userId)));
 	}
 
 	@Override
@@ -113,14 +110,15 @@ public class UserServiceImpl implements UserService {
 		// Check if email already exists
 		String email = user.getEmail();
 		Optional<UserEntity> existingUser = userRepository.findByEmail(email);
-		if (existingUser.isPresent()) {
-			throw new UserAlreadyExistsException(String.format(UserServiceConstants.USER_ALREADY_EXISTS_WITH_EMAIL, email));
+		if (existingUser.isPresent() && !existingUser.get().getId().equals(user.getId())) {
+			throw new UserAlreadyExistsException(String.format(AppConstants.USER_EMAIL_ALREADY_EXISTS, email));
 		}
-		// Encode password before saving
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-		// Assign default role as USER if not set
-		if (user.getRoles() == null || user.getRoles().isEmpty()) {
+		
+		// Assign default role as USER if not set (ensure roles list is initialized)
+		if (user.getRoles() == null) {
+			user.setRoles(new ArrayList<>());
+		}
+		if (user.getRoles().isEmpty()) {
 			user.setRoles(List.of("ROLE_USER"));
 		}
 
@@ -136,22 +134,30 @@ public class UserServiceImpl implements UserService {
 		if (user.getOrderIds() == null) {
 			user.setOrderIds(new ArrayList<>()); // Default empty list if null
 		}
+		userServiceLogger.debug("Saving user entity: {}", user);
 		return userRepository.save(user);
 	}
 
 	@Override
 	public UserEntity saveUser(UserRegisterRequest registerRequest) {
-		UserEntity user = new UserEntity();
-		user.setEmail(registerRequest.getEmail());
-		user.setPassword(registerRequest.getPassword()); // Raw password, will be encoded later
-		user.setName(registerRequest.getName());
-		
-		// Set roles from the registration request if provided
-		if (registerRequest.getRoles() != null && !registerRequest.getRoles().isEmpty()) {
-			user.setRoles(registerRequest.getRoles());
+		Optional<UserEntity> existingUserCheck = userRepository.findByEmail(registerRequest.getEmail());
+		if (existingUserCheck.isPresent()) {
+			throw new UserAlreadyExistsException(String.format(AppConstants.USER_EMAIL_ALREADY_EXISTS, registerRequest.getEmail()));
 		}
 		
-		return saveUser(user);
+		UserEntity user = new UserEntity();
+		user.setEmail(registerRequest.getEmail());
+		user.setPassword(passwordEncoder.encode(registerRequest.getPassword())); // Encode password here
+		user.setName(registerRequest.getName());
+		
+		// Set roles from the registration request if provided, default to USER otherwise
+		if (registerRequest.getRoles() != null && !registerRequest.getRoles().isEmpty()) {
+			user.setRoles(registerRequest.getRoles());
+		} else {
+			user.setRoles(List.of("ROLE_USER")); // Default role
+		}
+		
+		return userRepository.save(user); // Save the fully prepared entity
 	}
 
 }

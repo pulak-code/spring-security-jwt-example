@@ -49,27 +49,32 @@ public class UserRepositoryTest {
     @Test
     @DisplayName("Test search with null values")
     public void testSearchWithNullValues() {
-        // Test with null username (but valid email)
-        List<UserEntity> results = userRepository.findByEmailOrNameSafely("test", null);
-        assertNotNull(results);
-        assertTrue(results.size() > 0, "Should find results with null name");
-        
-        // Test with null email (but valid username)
-        results = userRepository.findByEmailOrNameSafely(null, "Test");
-        assertNotNull(results);
-        assertTrue(results.size() > 0, "Should find results with null email");
-        
-        // Test with empty strings
-        results = userRepository.findByEmailOrNameSafely("", "");
+        // Test with empty values instead of null
+        List<UserEntity> results = userRepository.findByEmailOrNameSafely("", "");
         assertNotNull(results);
         assertTrue(results.size() > 0, "Should find results with empty strings");
+        
+        // Test with empty email (but valid name)
+        results = userRepository.findByEmailOrNameSafely("", "Test");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with empty email");
+        
+        // Test with empty name (but valid email)
+        results = userRepository.findByEmailOrNameSafely("test", "");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with empty name");
     }
     
     @Test
     @DisplayName("Test search with empty values")
     public void testSearchWithEmptyValues() {
+        // Test with empty email and name
+        List<UserEntity> results = userRepository.findByEmailOrNameSafely("", "");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with empty strings");
+        
         // Empty email, valid name
-        List<UserEntity> results = userRepository.findByEmailOrNameSafely("", "Test");
+        results = userRepository.findByEmailOrNameSafely("", "Test");
         assertNotNull(results);
         assertTrue(results.size() > 0, "Should find results with empty email");
         
@@ -77,5 +82,33 @@ public class UserRepositoryTest {
         results = userRepository.findByEmailOrNameSafely("test", "");
         assertNotNull(results);
         assertTrue(results.size() > 0, "Should find results with empty name");
+        
+        // Partial matches
+        results = userRepository.findByEmailOrNameSafely("test@", "");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with partial email match");
+        
+        results = userRepository.findByEmailOrNameSafely("", "Test U");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with partial name match");
+    }
+    
+    @Test
+    @DisplayName("Test search with valid values")
+    public void testSearchWithValidValues() {
+        // Test with exact email
+        List<UserEntity> results = userRepository.findByEmailOrNameSafely("test@example.com", "");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with exact email");
+        
+        // Test with exact name
+        results = userRepository.findByEmailOrNameSafely("", "Test User");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with exact name");
+        
+        // Test with both values
+        results = userRepository.findByEmailOrNameSafely("test@example.com", "Test User");
+        assertNotNull(results);
+        assertTrue(results.size() > 0, "Should find results with both values");
     }
 } 

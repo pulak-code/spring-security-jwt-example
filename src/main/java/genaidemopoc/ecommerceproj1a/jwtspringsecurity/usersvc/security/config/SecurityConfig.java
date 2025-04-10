@@ -1,31 +1,44 @@
 package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
-import org.springframework.boot.actuate.health.HealthEndpoint;
+// Spring Framework
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpHeaders;
+import java.util.List;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.Counter;
-import jakarta.annotation.PostConstruct;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.SecurityConstants;
+// Project Specific
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.SecurityConstants;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.authprovider.CustomAuthenticationProvider;
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.filter.SecurityCorsFilter;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.filter.JWTAuthenticationFilter;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.model.CustomUserDetailsService;
 import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.utilservice.JWTUtil;
+// import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.security.entrypoint.JwtAuthenticationEntryPoint; // Commented out - Class not found
+
+// Monitoring & Metrics
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+
+// Logging
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+// Other
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -34,21 +47,32 @@ import lombok.RequiredArgsConstructor;
  */
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     private final CustomUserDetailsService userDetailsService;
-    private final JWTAuthenticationFilter jwtAuthenticationFilter;
+    // private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint; // Commented out
+    private final JWTAuthenticationFilter jwtAuthenticationFilter; // Corrected field type name
     private final JWTUtil jwtUtil;
     private final CustomAuthenticationProvider authenticationProvider;
-    private final SecurityCorsFilter securityCorsFilter;
     private final MeterRegistry meterRegistry;
 
     private Counter authSuccessCounter;
     private Counter authFailureCounter;
+
+    // Define Auth Whitelist URLs here for now
+    private static final String[] AUTH_WHITELIST_URLS = {
+        "/api/auth/**",
+        "/users/api/auth/**",
+        "/swagger-ui/**",
+        "/swagger-ui.html",
+        "/v3/api-docs/**",
+        "/v3/api-docs.yaml",
+        "/actuator/health" 
+    };
 
     @PostConstruct
     public void initMetrics() {
@@ -75,65 +99,21 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-            // 1. CORS/CSRF Configuration
-            .cors().disable()  // CORS handled by SecurityCorsFilter
-            .csrf().disable()  // Disabled for stateless API
-            
-            // 2. Security Headers Configuration
-            .headers(headers -> headers
-                .frameOptions(frame -> frame.deny())  // Prevent clickjacking
-                .xssProtection(xss -> xss.enable())   // Enable XSS protection
-                .contentSecurityPolicy(csp ->         // Strict CSP
-                    csp.policyDirectives("default-src 'self'; frame-ancestors 'none';"))
-                .httpStrictTransportSecurity(hsts ->  // Force HTTPS
-                    hsts.includeSubDomains(true).maxAgeInSeconds(31536000))
-                .referrerPolicy(referrer -> referrer.strictOrigin())
-                .permissionsPolicy(permissions -> permissions.disable())
-            )
-            
-            // 3. Session Management
-            .sessionManagement(session -> 
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            // 4. Authorization Rules
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/swagger-ui/**",
-                    "/swagger-ui.html",
-                    "/v3/api-docs/**",
-                    "/v3/api-docs.yaml"
-                ).permitAll()
-                // Authentication endpoints
-                .requestMatchers(
-                    "/api/auth/user/register",
-                    "/api/auth/admin/register",
-                    "/api/auth/user/login",
-                    "/api/auth/admin/login"
-                ).permitAll()
-                // Admin endpoints protection
-                .requestMatchers(SecurityConstants.URL_ALL_ADMIN).hasRole("ADMIN")
-                // User endpoints protection
-                .requestMatchers(SecurityConstants.URL_ALL_USER).hasRole("USER")
-                // Health check endpoint
-                .requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll()
-                // Protect all other actuator endpoints
-                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
-                // Require authentication for all other endpoints
+        http
+            .csrf(AbstractHttpConfigurer::disable)
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Uses correct type
+            // .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthenticationEntryPoint)) // Commented out
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers(AUTH_WHITELIST_URLS).permitAll() // Use local definition
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
             )
-            // 5. Authentication Provider and Filters
-            .authenticationProvider(authenticationProvider)
-            .addFilterBefore(
-                securityCorsFilter, 
-                UsernamePasswordAuthenticationFilter.class
-            )
-            .addFilterBefore(
-                jwtAuthenticationFilter, 
-                UsernamePasswordAuthenticationFilter.class
-            )
-            .build();
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // Uses correct type
+
+        return http.build();
     }
+    
     @Bean
     public AuthenticationManager authenticationManager() {
         logger.info("Initializing AuthenticationManager with CustomAuthenticationProvider");
@@ -141,8 +121,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12); // Increased strength from default 10
+    public CorsConfigurationSource corsConfigurationSource() { // Uses correct type
+        CorsConfiguration configuration = new CorsConfiguration(); // Uses correct type
+        configuration.setAllowedOrigins(List.of("*")); // Configure allowed origins properly
+        configuration.setAllowedMethods(List.of(HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(), HttpMethod.DELETE.name(), HttpMethod.OPTIONS.name()));
+        configuration.setAllowedHeaders(List.of(HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE, "Refresh-Token")); // Use literal or SecurityConstants.ALLOWED_HEADERS if available
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(); // Uses correct type
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
     /**

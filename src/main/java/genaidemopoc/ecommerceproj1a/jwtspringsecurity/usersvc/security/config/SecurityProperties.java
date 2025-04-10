@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.Valid;
@@ -20,6 +21,7 @@ import lombok.Data;
 @ConfigurationProperties(prefix = "security")
 @ConfigurationPropertiesScan
 @Validated
+@Component
 public class SecurityProperties {
 
     @Valid

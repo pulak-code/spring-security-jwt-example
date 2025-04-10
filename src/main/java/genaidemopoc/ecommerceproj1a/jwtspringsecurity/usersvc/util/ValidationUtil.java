@@ -2,17 +2,17 @@ package genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.util;
 
 import java.util.regex.Pattern;
 
-import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constant.UserServiceConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.AppConstants;
+import genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc.constants.ValidationConstants;
+import lombok.experimental.UtilityClass;
 
-public class ValidationUtil extends AppUtil {
+@UtilityClass
+public class ValidationUtil {
 	
-private static final Pattern EMAIL_PATTERN = Pattern.compile(UserServiceConstants.EMAIL_REGEX);
-   private static final Pattern PASSWORD_PATTERN = Pattern.compile(UserServiceConstants.PASSWORD_REGEX);
+	private static final Pattern EMAIL_PATTERN = Pattern.compile(ValidationConstants.EMAIL_PATTERN);
+   private static final Pattern PASSWORD_PATTERN = Pattern.compile(ValidationConstants.PASSWORD_PATTERN);
 
-	private ValidationUtil() {
-		throw new IllegalStateException(UserServiceConstants.UTILITY_CLASS);
-	}
-	 /**
+	/**
      * Validates the email format using a regular expression.
      *
      * @param email the email string to validate
@@ -24,10 +24,18 @@ private static final Pattern EMAIL_PATTERN = Pattern.compile(UserServiceConstant
         }
         return EMAIL_PATTERN.matcher(email).matches();
     }
-	public static boolean isValidAndStrongPassword(String password) {
-		if (AppUtil.isNullOrEmpty(password)) {
+
+    public static boolean isValidPassword(String password) {
+        if (AppUtil.isNullOrEmpty(password)) {
             return false;
         }
         return PASSWORD_PATTERN.matcher(password).matches();
-	}
+    }
+
+    public static boolean isValidAndStrongPassword(String password) {
+        if (AppUtil.isNullOrEmpty(password)) {
+            return false;
+        }
+        return PASSWORD_PATTERN.matcher(password).matches();
+    }
 }
