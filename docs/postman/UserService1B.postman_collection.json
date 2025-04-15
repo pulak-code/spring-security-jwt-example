@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+		"name": "UserService1B",
+		"description": "Postman collection for UserService1B API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"Password@1234\",\n    \"name\": \"John Doe\",\n    \"roles\": [\"USER\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/register",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "register"]
+						},
+						"description": "Register a new user with USER role"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"Password@1234\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/login",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "login"]
+						},
+						"description": "Login with user credentials"
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"Password@1234\",\n    \"name\": \"Admin User\",\n    \"roles\": [\"ADMIN\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/register",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "register"]
+						},
+						"description": "Register a new admin user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"Password@1234\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/login",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "login"]
+						},
+						"description": "Login with admin credentials"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"cookie": [
+							{
+								"key": "refresh_token",
+								"value": "{{refresh_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/refresh-token",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "refresh-token"]
+						},
+						"description": "Refresh access token using refresh token cookie"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "logout"]
+						},
+						"description": "Logout current user session"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout All Devices",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Refresh-Token",
+								"value": "{{refresh_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout-all",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "logout-all"]
+						},
+						"description": "Logout from all devices"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication and user management endpoints"
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/profile",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "users", "profile"]
+						},
+						"description": "Get current user profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/{{user_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "users", "{{user_id}}"]
+						},
+						"description": "Get user by ID (requires admin role)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Name\",\n    \"email\": \"updated@example.com\",\n    \"password\": \"Password@1234\",\n    \"addresses\": [\n        {\n            \"street\": \"123 Main St\",\n            \"city\": \"Anytown\",\n            \"state\": \"CA\",\n            \"zipCode\": \"12345\",\n            \"country\": \"USA\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/{{user_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "users", "{{user_id}}"]
+						},
+						"description": "Update user details (admin can update any user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit My Profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My New Name\",\n    \"email\": \"newemail@example.com\",\n    \"password\": \"Password@1234\",\n    \"addresses\": [\n        {\n            \"street\": \"456 New St\",\n            \"city\": \"New City\",\n            \"state\": \"NY\",\n            \"zipCode\": \"54321\",\n            \"country\": \"USA\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/profile",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "users", "profile"]
+						},
+						"description": "Edit current user's profile"
+					},
+					"response": []
+				}
+			],
+			"description": "User profile and data management endpoints"
+		},
+		{
+			"name": "Admin Management",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "admin", "users"]
+						},
+						"description": "Get all users (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users/{{user_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "admin", "users", "{{user_id}}"]
+						},
+						"description": "Delete a user by ID (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users/search?email=example.com&name=Admin",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "admin", "users", "search"],
+							"query": [
+								{
+									"key": "email",
+									"value": "example.com"
+								},
+								{
+									"key": "name",
+									"value": "Admin"
+								}
+							]
+						},
+						"description": "Search users by email or name (admin only)"
+					},
+					"response": []
+				}
+			],
+			"description": "Admin-specific management endpoints"
+		},
+		{
+			"name": "Test Users",
+			"item": [
+				{
+					"name": "Register Test Admin 8",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin8@example.com\",\n    \"password\": \"Password@1234\",\n    \"name\": \"Admin Eight\",\n    \"roles\": [\"ADMIN\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/register",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "register"]
+						},
+						"description": "Register test admin user 8"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Test Admin 8",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin8@example.com\",\n    \"password\": \"Password@1234\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/user/login",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "auth", "user", "login"]
+						},
+						"description": "Login as test admin user 8"
+					},
+					"response": []
+				}
+			],
+			"description": "Test users that have been created during development"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Auto-save tokens from responses",
+					"var jsonData = pm.response.json();",
+					"",
+					"if (jsonData && jsonData.accessToken) {",
+					"    pm.environment.set(\"access_token\", jsonData.accessToken);",
+					"}",
+					"",
+					"if (jsonData && jsonData.refreshToken) {",
+					"    pm.environment.set(\"refresh_token\", jsonData.refreshToken);",
+					"}",
+					"",
+					"// Extract user ID if available",
+					"if (jsonData && jsonData.userId) {",
+					"    pm.environment.set(\"user_id\", jsonData.userId);",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+} 
