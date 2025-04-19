@@ -284,13 +284,6 @@ Content-Type: application/json
 }
 ```
 
-#### Reset Default Admin Passwords
-Resets passwords for `admin@example.com` and `admin99@example.com` to `Password@1234` and ensures they have `ROLE_ADMIN`.
-```http
-POST /api/admin/reset-password
-Authorization: Bearer <admin_access_token>
-```
-
 ### Admin User Management Endpoints (Admin Role Required)
 *(Note: These are managed by AdminController but follow the /api/user path convention)*
 
@@ -373,6 +366,21 @@ curl -X GET http://localhost:8080/api/user \\
   -H "Authorization: Bearer <admin_access_token>"
 ```
 
+### Error Codes
+
+Common HTTP status codes returned by the API:
+
+| Status Code | Description |
+|-------------|-------------|
+| 200 | OK - Request succeeded |
+| 201 | Created - Resource created successfully |
+| 400 | Bad Request - Invalid input parameters or request format |
+| 401 | Unauthorized - Authentication required or token invalid/expired |
+| 403 | Forbidden - Authenticated user lacks permission for the resource |
+| 404 | Not Found - Resource not found |
+| 409 | Conflict - Resource already exists (e.g., duplicate email during registration) |
+| 500 | Internal Server Error - Unexpected server-side error |
+
 ## Testing
 
 ### Unit Tests
@@ -386,102 +394,179 @@ curl -X GET http://localhost:8080/api/user \\
 ```
 
 ### Test Coverage
+Run tests with the JaCoCo agent enabled:
 ```bash
-./mvnw test -Djacoco.skip=false
+# Activate the 'coverage' profile defined in pom.xml
+./mvnw clean verify -Pcoverage
 ```
+Find the report in `target/site/jacoco/index.html`.
+
 
 ### Postman Collection
 [Download Postman Collection](docs/postman/UserService1B.postman_collection.json)
 
-## Testing Guide
+Import the collection into Postman to interact with the API.
 
-### Complete API Flow Testing Steps
+### Postman Testing Guide: Step-by-Step Workflow
 
-Follow these steps in order to test the complete user authentication and management flow:
+This guide details how to test the complete application workflow using the Postman collection. Assumes the collection is imported and the Spring Boot application runs locally on `http://localhost:8080`.
 
-1. **Register a New User**
-   ```bash
-   curl -X POST http://localhost:8080/api/auth/user/register \
-     -H "Content-Type: application/json" \
-     -d '{
-       "email": "testuser@example.com",
-       "password": "Test@123",
-       "name": "Test User",
-       "roles": ["USER"]
-     }'
-   ```
-   - Expected Response: 201 Created
-   - Save the access token and refresh token from the response
+**Phase 1: Environment Setup**
 
-2. **Login with Registered User**
-   ```bash
-   curl -X POST http://localhost:8080/api/auth/user/login \
-     -H "Content-Type: application/json" \
-     -d '{
-       "email": "testuser@example.com",
-       "password": "Test@123"
-     }'
-   ```
-   - Expected Response: 200 OK with new tokens
-   - Save the new access token and refresh token
+1.  **Create Postman Environment:**
+    *   Click the "Environment quick look" icon (eye) > "Add".
+    *   Name it "UserService1B Local".
+    *   Add variables:
+        *   `base_url`: `http://localhost:8080`
+        *   `access_token`: (Leave empty)
+        *   `refresh_token`: (Leave empty)
+        *   `user_email`: `testuser_{{$timestamp}}@example.com` (Uses dynamic timestamp for uniqueness)
+        *   `user_password`: `Password@1234`
+        *   `admin_email`: `admin@example.com`
+        *   `admin_password`: `Password@1234`
+        *   `user_id`: (Leave empty)
+    *   Save and select this environment as active.
 
-3. **Get User Profile**
-   ```bash
-   curl -X GET http://localhost:8080/api/users/profile \
-     -H "Authorization: Bearer <access_token>"
-   ```
-   - Expected Response: 200 OK with user details
-   - Verify the returned user information matches the registration data
+2.  **Server-Side Environment (Reminder):**
+    *   Ensure the running Spring Boot app has `MONGODB_URI`, `JWT_SECRET_KEY`, `JWT_REFRESH_SECRET_KEY` environment variables set.
 
-4. **Update User Profile**
-   ```bash
-   curl -X PUT http://localhost:8080/api/users/profile \
-     -H "Authorization: Bearer <access_token>" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "name": "Updated Test User",
-       "addresses": ["123 Test Street"]
-     }'
-   ```
-   - Expected Response: 200 OK
-   - Verify the profile was updated by making another GET request
+**Phase 2: Admin Workflow & Setup**
 
-5. **Refresh Access Token**
-   ```bash
-   curl -X POST http://localhost:8080/api/auth/refresh-token \
-     -H "Cookie: refresh_token=<refresh_token>"
-   ```
-   - Expected Response: 200 OK with new access token
-   - Save the new access token for subsequent requests
+3.  **Login as Admin:**
+    *   Request: `POST /api/auth/user/login` (from Authentication folder)
+    *   Body (raw/JSON):
+        ```json
+        {
+            "email": "{{admin_email}}",
+            "password": "{{admin_password}}"
+        }
+        ```
+    *   Tests Tab Script (Captures tokens):
+        ```javascript
+        var jsonData = pm.response.json();
+        if (jsonData && jsonData.accessToken) {
+            pm.environment.set("access_token", jsonData.accessToken);
+            console.log("Admin Access Token set.");
+        }
+        if (jsonData && jsonData.refreshToken) {
+            pm.environment.set("refresh_token", jsonData.refreshToken);
+            console.log("Admin Refresh Token set.");
+        }
+        ```
+    *   Send. Verify `200 OK` and tokens captured.
 
-6. **Logout**
-   ```bash
-   curl -X POST http://localhost:8080/api/auth/logout \
-     -H "Authorization: Bearer <access_token>"
-   ```
-   - Expected Response: 200 OK
-   - Verify the token is invalidated by attempting to access a protected endpoint
+4.  **Get Admin Dashboard:**
+    *   Request: `GET /api/admin/dashboard`
+    *   Authorization: Bearer Token `{{access_token}}`
+    *   Send. Verify `200 OK`.
 
-### Postman Testing Flow
+5.  **Get All Users (as Admin):**
+    *   Request: `GET /api/user` or `GET /api/user/all` (Admin-specific)
+    *   Authorization: Bearer Token `{{access_token}}`
+    *   Tests Tab Script (Optional: Captures Admin ID):
+        ```javascript
+        var jsonData = pm.response.json();
+        if (jsonData && Array.isArray(jsonData)) {
+            var adminUser = jsonData.find(user => user.email === pm.environment.get("admin_email"));
+            if (adminUser) {
+                pm.environment.set("admin_user_id", adminUser.id);
+                console.log("Admin User ID captured: " + adminUser.id);
+            }
+        }
+        ```
+    *   Send. Verify `200 OK` and user list in response.
 
-1. Import the Postman collection from `docs/postman/UserService1B.postman_collection.json`
-2. Create a new environment in Postman with variables:
-   - `base_url`: http://localhost:8080/api
-   - `access_token`: (will be set after login)
-   - `refresh_token`: (will be set after login)
+**Phase 3: User Workflow**
 
-3. Execute requests in this order:
-   - Register User
-   - Login
-   - Get User Profile
-   - Update User Profile
-   - Refresh Token
-   - Logout
+7.  **Register New User:**
+    *   Request: `POST /api/auth/user/register`
+    *   Body (raw/JSON):
+        ```json
+        {
+            "email": "{{user_email}}",
+            "password": "{{user_password}}",
+            "name": "Test User Timestamped",
+            "roles": ["USER"]
+        }
+        ```
+    *   Send. Verify `201 Created`.
 
-4. After each successful request:
-   - Check the response status code
-   - Verify the response body
-   - Update environment variables if new tokens are received
+8.  **Login as New User:**
+    *   Request: `POST /api/auth/user/login`
+    *   Body (raw/JSON):
+        ```json
+        {
+            "email": "{{user_email}}",
+            "password": "{{user_password}}"
+        }
+        ```
+    *   Ensure the "Tests" script from Step 3 is present to capture user tokens.
+    *   Send. Verify `200 OK` and *new* tokens captured.
+
+9.  **Get User Profile:**
+    *   Request: `GET /api/user/profile`
+    *   Authorization: Bearer Token `{{access_token}}` (will use the user's token)
+    *   Tests Tab Script (Captures User ID):
+        ```javascript
+        var jsonData = pm.response.json();
+        if (jsonData && jsonData.id) {
+            pm.environment.set("user_id", jsonData.id);
+            console.log("Test User ID captured: " + jsonData.id);
+        }
+        ```
+    *   Send. Verify `200 OK` and correct user details in response.
+
+10. **Edit User Profile:**
+    *   Request: `PUT /api/user/edit/{{user_id}}` (Ensure URL uses the captured `user_id`)
+    *   Authorization: Bearer Token `{{access_token}}`
+    *   Body (raw/JSON):
+        ```json
+        {
+            "name": "Updated Test User Name"
+        }
+        ```
+    *   Send. Verify `200 OK`.
+    *   *(Optional)* Send "Get User Profile" (Step 9) again to confirm the update.
+
+**Phase 4: Token Management**
+
+11. **Refresh Access Token:**
+    *   Request: `POST /api/auth/user/refresh`
+    *   Configuration: Check how the refresh token is sent (cookie, header, body). If needed, add `Refresh-Token: {{refresh_token}}` to Headers.
+    *   Tests Tab Script (Captures new access token):
+        ```javascript
+        var jsonData = pm.response.json();
+        if (jsonData && jsonData.accessToken) {
+            pm.environment.set("access_token", jsonData.accessToken);
+            console.log("Access Token REFRESHED.");
+        }
+        ```
+    *   Send. Verify `200 OK` and new `accessToken` captured.
+
+12. **Logout:**
+    *   Request: `POST /api/auth/user/logout`
+    *   Authorization: Bearer Token `{{access_token}}`
+    *   Send. Verify `200 OK`.
+    *   *(Optional)* Send "Get User Profile" (Step 9) again; expect `401 Unauthorized` or `403 Forbidden`.
+
+**Phase 5: Admin Management of User**
+
+13. **Login as Admin (Again):**
+    *   Repeat Step 3 to get admin tokens.
+
+14. **Update Test User (as Admin):**
+    *   Request: `PUT /api/user/update/{{user_id}}` (Ensure URL uses the test user's `user_id`)
+    *   Authorization: Bearer Token `{{access_token}}` (Admin's token)
+    *   Body (raw/JSON):
+        ```json
+        {
+            "name": "Name Updated By Admin",
+            "roles": ["USER", "VIP"]
+        }
+        ```
+    *   Send. Verify `200 OK`.
+    *   *(Optional)* Log back in as the test user (Step 8) and get their profile (Step 9) to confirm admin's changes.
+
 
 ### Common Test Scenarios
 

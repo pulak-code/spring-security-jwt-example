@@ -45,7 +45,7 @@ public class AuthController {
 		description = AppConstants.API_REGISTER_USER_DESC
 	)
 	@ApiResponse(
-		responseCode = "200",
+		responseCode = "201",
 		description = AppConstants.USER_REGISTERED_SUCCESS
 	)
 	@ApiResponse(
@@ -53,52 +53,13 @@ public class AuthController {
 		description = AppConstants.BAD_REQUEST
 	)
 	@PostMapping("/user/register")
-	public ResponseEntity<AuthResponse> registerUser(@Valid @RequestBody UserRegisterRequest request) {
+	public ResponseEntity<AuthResponse> registerUser(
+		@Valid @RequestBody UserRegisterRequest request,
+		HttpServletResponse response
+	) {
 		authControllerLogger.info("Received user registration request for email: {}", request.getEmail());
-		AuthResponse createdUser = authService.registerUser(request);
-		return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
-	}
-
-	@Operation(
-		summary = AppConstants.USER_LOGIN,
-		description = AppConstants.API_LOGIN_USER_DESC
-	)
-	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = SecurityConstants.SUCCESS_AUTHENTICATED),
-		@ApiResponse(responseCode = "401", description = AppConstants.INVALID_CREDENTIALS),
-		@ApiResponse(responseCode = "500", description = AppConstants.INTERNAL_SERVER_ERROR)
-	})
-	@PostMapping("/user/login")
-	public ResponseEntity<AuthResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response) {
-		authControllerLogger.info("Received login request for email: {}", loginRequest.getEmail());
-		
-		try {
-			AuthResponse authResponse = authService.authenticateUser(loginRequest, response);
-			
-			// Set the Authorization header
-			response.setHeader(SecurityConstants.AUTHORIZATION, SecurityConstants.TOKEN_PREFIX + authResponse.getAccessToken());
-			
-			// Set the refresh token cookie
-			if (authResponse.getRefreshToken() != null) {
-				Cookie refreshTokenCookie = new Cookie("refresh_token", authResponse.getRefreshToken());
-				refreshTokenCookie.setHttpOnly(true);
-				refreshTokenCookie.setSecure(true);
-				refreshTokenCookie.setPath(SecurityConstants.REFRESH_TOKEN_ENDPOINT);
-				refreshTokenCookie.setMaxAge((int) TimeUnit.MILLISECONDS.toSeconds(SecurityConstants.REFRESH_TOKEN_EXPIRATION_TIME));
-				response.addCookie(refreshTokenCookie);
-			}
-			
-			authControllerLogger.info("Login successful for: {}", loginRequest.getEmail());
-			return ResponseEntity.ok(authResponse);
-		} catch (InvalidCredentialsException e) {
-			authControllerLogger.warn("Login failed - invalid credentials: {}", e.getMessage());
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-				.body(AuthResponse.error("Invalid email or password"));
-		} catch (Exception e) {
-			authControllerLogger.error("Login failed - server error: {}", e.getMessage(), e);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-				.body(AuthResponse.error("Authentication failed"));
-		}
+		AuthResponse createdUserResponse = authService.registerUser(request, response);
+		return ResponseEntity.status(HttpStatus.CREATED).body(createdUserResponse);
 	}
 
 	@Operation(

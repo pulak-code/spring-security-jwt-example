@@ -2,6 +2,7 @@ package genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.service;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.dto.UserUpdateRequest;
 import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.model.UserEntity;

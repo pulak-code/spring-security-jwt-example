@@ -18,7 +18,19 @@
 	</Appenders>
 
 	<Loggers>
-		<!-- Root Logger -->
+		<!-- Specific Loggers -->
+        <Logger name="genaidemopoc.ecommerceproj.jwtspringsecurity" level="debug" additivity="false">
+            <AppenderRef ref="DailyRollingFileAppender"/>
+        </Logger>
+        <Logger name="org.springframework.security" level="debug" additivity="false">
+             <AppenderRef ref="DailyRollingFileAppender"/>
+        </Logger>
+         <Logger name="org.springframework.web" level="info" additivity="false">
+             <AppenderRef ref="DailyRollingFileAppender"/>
+        </Logger>
+         <!-- Add more specific loggers as needed -->
+
+		<!-- Root Logger (catches everything else) -->
 		<Root level="info">
 			<AppenderRef ref="DailyRollingFileAppender" />
 		</Root>

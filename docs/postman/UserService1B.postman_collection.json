@@ -26,9 +26,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/register",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "register"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"register"
+							]
 						},
 						"description": "Register a new user with USER role"
 					},
@@ -51,9 +58,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/login",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "login"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"login"
+							]
 						},
 						"description": "Login with user credentials"
 					},
@@ -76,9 +90,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/register",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "register"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"register"
+							]
 						},
 						"description": "Register a new admin user"
 					},
@@ -101,9 +122,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/login",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "login"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"login"
+							]
 						},
 						"description": "Login with admin credentials"
 					},
@@ -123,9 +151,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/refresh-token",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "refresh-token"]
+							"path": [
+								"api",
+								"auth",
+								"refresh-token"
+							]
 						},
 						"description": "Refresh access token using refresh token cookie"
 					},
@@ -144,9 +178,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/logout",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "logout"]
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
 						},
 						"description": "Logout current user session"
 					},
@@ -165,9 +205,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/logout-all",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "logout-all"]
+							"path": [
+								"api",
+								"auth",
+								"logout-all"
+							]
 						},
 						"description": "Logout from all devices"
 					},
@@ -192,9 +238,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/users/profile",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "users", "profile"]
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
 						},
 						"description": "Get current user profile"
 					},
@@ -213,9 +265,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/users/{{user_id}}",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "users", "{{user_id}}"]
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
 						},
 						"description": "Get user by ID (requires admin role)"
 					},
@@ -242,9 +300,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/users/{{user_id}}",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "users", "{{user_id}}"]
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
 						},
 						"description": "Update user details (admin can update any user)"
 					},
@@ -271,9 +335,15 @@
 						"url": {
 							"raw": "http://localhost:8080/api/users/profile",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "users", "profile"]
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
 						},
 						"description": "Edit current user's profile"
 					},
@@ -283,26 +353,57 @@
 			"description": "User profile and data management endpoints"
 		},
 		{
+			"name": "Admin Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/admin/dashboard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"dashboard"
+					]
+				},
+				"description": "Displays a welcome message for the admin dashboard. Requires Admin role."
+			},
+			"response": []
+		},
+		{
 			"name": "Admin Management",
 			"item": [
 				{
-					"name": "Get All Users",
+					"name": "Get All Users (Admin)",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
+								"value": "Bearer {{access_token}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/admin/users",
-							"protocol": "http",
-							"host": ["localhost"],
-							"port": "8080",
-							"path": ["api", "admin", "users"]
+							"raw": "{{base_url}}/api/user/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"all"
+							]
 						},
-						"description": "Get all users (admin only)"
+						"description": "Retrieves a list of all registered users. Requires Admin role."
 					},
 					"response": []
 				},
@@ -319,9 +420,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/admin/users/{{user_id}}",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "admin", "users", "{{user_id}}"]
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"{{user_id}}"
+							]
 						},
 						"description": "Delete a user by ID (admin only)"
 					},
@@ -340,9 +448,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/admin/users/search?email=example.com&name=Admin",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "admin", "users", "search"],
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"search"
+							],
 							"query": [
 								{
 									"key": "email",
@@ -381,9 +496,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/register",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "register"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"register"
+							]
 						},
 						"description": "Register test admin user 8"
 					},
@@ -406,9 +528,16 @@
 						"url": {
 							"raw": "http://localhost:8080/api/auth/user/login",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "8080",
-							"path": ["api", "auth", "user", "login"]
+							"path": [
+								"api",
+								"auth",
+								"user",
+								"login"
+							]
 						},
 						"description": "Login as test admin user 8"
 					},
@@ -458,4 +587,4 @@
 			"value": "http://localhost:8080"
 		}
 	]
-} 
+}

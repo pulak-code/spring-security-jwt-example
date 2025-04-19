@@ -1,4 +1,4 @@
-package genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.service.impl;
+package genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.unit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -29,6 +29,7 @@ import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.exception.custom.Use
 import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.exception.custom.UserNotFoundException;
 import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.model.UserEntity;
 import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.repository.UserRepository;
+import genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.service.impl.UserServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {

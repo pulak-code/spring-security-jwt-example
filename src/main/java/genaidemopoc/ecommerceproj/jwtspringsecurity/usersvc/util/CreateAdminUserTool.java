@@ -71,30 +71,5 @@ public class CreateAdminUserTool implements CommandLineRunner {
                 System.out.println("Password match test: " + passwordMatches);
             }
         }
-        
-        // Create admin9@example.com account as well
-        if (!userRepository.existsByEmail("admin9@example.com")) {
-            System.out.println("Creating admin9 user...");
-            
-            UserEntity admin9User = new UserEntity();
-            admin9User.setName("Admin Nine");
-            admin9User.setEmail("admin9@example.com");
-            admin9User.setPassword(passwordEncoder.encode("Password@1234"));
-            admin9User.setRoles(new ArrayList<>(Arrays.asList("ROLE_ADMIN")));
-            
-            userRepository.save(admin9User);
-            System.out.println("Admin9 user created successfully with email: admin9@example.com and password: Password@1234");
-        } else {
-            System.out.println("Admin9 user already exists");
-            
-            // Update existing admin9 user to ensure correct password and roles
-            UserEntity existingAdmin9 = userRepository.findByEmail("admin9@example.com").orElse(null);
-            if (existingAdmin9 != null) {
-                existingAdmin9.setPassword(passwordEncoder.encode("Password@1234"));
-                existingAdmin9.setRoles(new ArrayList<>(Arrays.asList("ROLE_ADMIN")));
-                userRepository.save(existingAdmin9);
-                System.out.println("Updated existing admin9 user credentials");
-            }
-        }
     }
 } 

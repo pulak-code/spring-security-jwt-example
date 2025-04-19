@@ -58,76 +58,6 @@ public class AuthServiceImpl implements AuthService {
 		this.refreshTokenService = refreshTokenService;
 	}
 
-	@Override
-	public AuthResponse authenticateUser(LoginRequest loginRequest, HttpServletResponse response) {
-		authServiceLogger.info("Authenticating user: {}", loginRequest.getEmail());
-
-		try {
-			// Get the user entity
-			authServiceLogger.debug("Checking if user exists with email: {}", loginRequest.getEmail());
-			boolean userExists = userService.existsByEmail(loginRequest.getEmail());
-			authServiceLogger.debug("User exists check result: {}", userExists);
-			
-			if (!userExists) {
-				authServiceLogger.warn("User not found: {}", loginRequest.getEmail());
-				throw new InvalidCredentialsException("Invalid email or password");
-			}
-			
-			authServiceLogger.debug("Fetching user entity for email: {}", loginRequest.getEmail());
-			UserEntity userEntity = userService.getUserByEmail(loginRequest.getEmail());
-			authServiceLogger.debug("User found: {} with id: {}", loginRequest.getEmail(), userEntity.getId());
-			authServiceLogger.debug("User roles: {}", userEntity.getRoles());
-			
-			// Verify password
-			authServiceLogger.debug("Encoded password from database: {}", userEntity.getPassword());
-			authServiceLogger.debug("Comparing passwords using PasswordEncoder...");
-			boolean passwordMatches = passwordEncoder.matches(loginRequest.getPassword(), userEntity.getPassword());
-			authServiceLogger.debug("Password matches: {}", passwordMatches);
-			
-			if (!passwordMatches) {
-				authServiceLogger.warn("Password verification failed for: {}", loginRequest.getEmail());
-				throw new InvalidCredentialsException("Invalid email or password");
-			}
-			
-			authServiceLogger.debug("Password verified for: {}", loginRequest.getEmail());
-			
-			// Set authentication in security context manually
-			authServiceLogger.debug("Creating authentication token for user: {}", loginRequest.getEmail());
-			UsernamePasswordAuthenticationToken authToken = createAuthenticationToken(userEntity);
-			authServiceLogger.debug("Setting authentication in SecurityContextHolder");
-			SecurityContextHolder.getContext().setAuthentication(authToken);
-			
-			// Generate tokens
-			authServiceLogger.debug("Generating access token for user: {}", loginRequest.getEmail());
-			String accessToken = jwtUtil.generateAccessToken(userEntity.getEmail());
-			authServiceLogger.debug("Generating refresh token for user: {}", loginRequest.getEmail());
-			String refreshTokenValue = jwtUtil.generateRefreshToken(userEntity.getEmail());
-			
-			// Save refresh token
-			authServiceLogger.debug("Creating refresh token in database for user: {}", loginRequest.getEmail());
-			RefreshToken refreshToken = refreshTokenService.createRefreshToken(
-				userEntity.getId(), 
-				userEntity.getEmail(), 
-				refreshTokenValue, 
-				Instant.now().plusSeconds(jwtUtil.getRefreshTokenExpirationSeconds())
-			);
-			
-			if (response != null) {
-				authServiceLogger.debug("Setting refresh token cookie in response");
-				setRefreshTokenCookie(response, refreshToken.getToken(), (int) jwtUtil.getRefreshTokenExpirationSeconds());
-			}
-			
-			authServiceLogger.info("Authentication successful for: {}", loginRequest.getEmail());
-			return AuthResponse.success(accessToken, refreshToken.getToken());
-		} catch (InvalidCredentialsException e) {
-			authServiceLogger.warn("Invalid credentials exception: {}", e.getMessage());
-			throw e;
-		} catch (Exception e) {
-			authServiceLogger.error("Authentication error: {}", e.getMessage(), e);
-			throw new InvalidCredentialsException("Authentication failed");
-		}
-	}
-	
 	private UsernamePasswordAuthenticationToken createAuthenticationToken(UserEntity user) {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 		
@@ -183,7 +113,7 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Override
-	public AuthResponse registerUser(UserRegisterRequest registerRequest) {
+	public AuthResponse registerUser(UserRegisterRequest registerRequest, HttpServletResponse response) {
 		authServiceLogger.info("Registering new user: {}", registerRequest.getEmail());
 
 		if (userService.existsByEmail(registerRequest.getEmail())) {
@@ -205,19 +135,27 @@ public class AuthServiceImpl implements AuthService {
 			user.getRoles().add("ROLE_USER");
 		}
 
-		userService.saveUser(user);
+		UserEntity savedUser = userService.saveUser(user);
 
-		String accessToken = jwtUtil.generateAccessToken(user.getEmail());
-		String refreshTokenValue = jwtUtil.generateRefreshToken(user.getEmail());
+		String accessToken = jwtUtil.generateAccessToken(savedUser.getEmail());
+		String refreshTokenValue = jwtUtil.generateRefreshToken(savedUser.getEmail());
+		
 		RefreshToken refreshToken = refreshTokenService.createRefreshToken(
-			user.getId(), 
-			user.getEmail(), 
+			savedUser.getId(), 
+			savedUser.getEmail(), 
 			refreshTokenValue, 
 			Instant.now().plusSeconds(jwtUtil.getRefreshTokenExpirationSeconds())
 		);
-		setRefreshTokenCookie(null, refreshToken.getToken(), (int) jwtUtil.getRefreshTokenExpirationSeconds());
+		setRefreshTokenCookie(response, refreshToken.getToken(), (int) jwtUtil.getRefreshTokenExpirationSeconds());
 
-		return AuthResponse.success(accessToken, refreshToken.getToken());
+		return AuthResponse.registrationSuccess(
+			savedUser.getId(),
+			savedUser.getName(),
+			savedUser.getEmail(),
+			savedUser.getRoles(),
+			accessToken,
+			refreshToken.getToken()
+		);
 	}
 
 	private void setRefreshTokenCookie(HttpServletResponse response, String token, int maxAge) {
@@ -283,4 +221,77 @@ public class AuthServiceImpl implements AuthService {
 	private boolean isTestEnvironment(String email) {
 		return email != null && (email.contains("test") || email.contains("example"));
 	}
+
+	// Method commented out as authentication is handled by JWTAuthenticationFilter
+	/* 
+	// @Override // Removed as method is no longer in AuthService interface
+	public AuthResponse authenticateUser(LoginRequest loginRequest, HttpServletResponse response) {
+		authServiceLogger.info("Authenticating user: {}", loginRequest.getEmail());
+
+		try {
+			// Get the user entity
+			authServiceLogger.debug("Checking if user exists with email: {}", loginRequest.getEmail());
+			boolean userExists = userService.existsByEmail(loginRequest.getEmail());
+			authServiceLogger.debug("User exists check result: {}", userExists);
+			
+			if (!userExists) {
+				authServiceLogger.warn("User not found: {}", loginRequest.getEmail());
+				throw new InvalidCredentialsException("Invalid email or password");
+			}
+			
+			authServiceLogger.debug("Fetching user entity for email: {}", loginRequest.getEmail());
+			UserEntity userEntity = userService.getUserByEmail(loginRequest.getEmail());
+			authServiceLogger.debug("User found: {} with id: {}", loginRequest.getEmail(), userEntity.getId());
+			authServiceLogger.debug("User roles: {}", userEntity.getRoles());
+			
+			// Verify password
+			authServiceLogger.debug("Encoded password from database: {}", userEntity.getPassword());
+			authServiceLogger.debug("Comparing passwords using PasswordEncoder...");
+			boolean passwordMatches = passwordEncoder.matches(loginRequest.getPassword(), userEntity.getPassword());
+			authServiceLogger.debug("Password matches: {}", passwordMatches);
+			
+			if (!passwordMatches) {
+				authServiceLogger.warn("Password verification failed for: {}", loginRequest.getEmail());
+				throw new InvalidCredentialsException("Invalid email or password");
+			}
+			
+			authServiceLogger.debug("Password verified for: {}", loginRequest.getEmail());
+			
+			// Set authentication in security context manually
+			authServiceLogger.debug("Creating authentication token for user: {}", loginRequest.getEmail());
+			UsernamePasswordAuthenticationToken authToken = createAuthenticationToken(userEntity);
+			authServiceLogger.debug("Setting authentication in SecurityContextHolder");
+			SecurityContextHolder.getContext().setAuthentication(authToken);
+			
+			// Generate tokens
+			authServiceLogger.debug("Generating access token for user: {}", loginRequest.getEmail());
+			String accessToken = jwtUtil.generateAccessToken(userEntity.getEmail());
+			authServiceLogger.debug("Generating refresh token for user: {}", loginRequest.getEmail());
+			String refreshTokenValue = jwtUtil.generateRefreshToken(userEntity.getEmail());
+			
+			// Save refresh token
+			authServiceLogger.debug("Creating refresh token in database for user: {}", loginRequest.getEmail());
+			RefreshToken refreshToken = refreshTokenService.createRefreshToken(
+				userEntity.getId(), 
+				userEntity.getEmail(), 
+				refreshTokenValue, 
+				Instant.now().plusSeconds(jwtUtil.getRefreshTokenExpirationSeconds())
+			);
+			
+			if (response != null) {
+				authServiceLogger.debug("Setting refresh token cookie in response");
+				setRefreshTokenCookie(response, refreshToken.getToken(), (int) jwtUtil.getRefreshTokenExpirationSeconds());
+			}
+			
+			authServiceLogger.info("Authentication successful for: {}", loginRequest.getEmail());
+			return AuthResponse.success(accessToken, refreshToken.getToken()); // Note: Uses the simpler success method now
+		} catch (InvalidCredentialsException e) {
+			authServiceLogger.warn("Invalid credentials exception: {}", e.getMessage());
+			throw e;
+		} catch (Exception e) {
+			authServiceLogger.error("Authentication error: {}", e.getMessage(), e);
+			throw new InvalidCredentialsException("Authentication failed");
+		}
+	}
+	*/
 }

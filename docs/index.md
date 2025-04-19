@@ -5,7 +5,6 @@ This directory contains comprehensive documentation for the UserService1B applic
 
 ## Documentation Structure
 
-- **[API Documentation](api/README.md)**: API endpoints, request/response examples, and error codes
 - **[Architecture](architecture/README.md)**: System architecture, component diagrams, and design patterns
 - **[Deployment](deployment/README.md)**: Deployment guides, environment setup, and configuration
 - **[Security](security/README.md)**: Security features, authentication, authorization, and best practices

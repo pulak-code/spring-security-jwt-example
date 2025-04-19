@@ -1,17 +1,77 @@
+# Combined test configuration from properties and existing yml
+server:
+  port: 0 # Use random port for tests
+
 spring:
   data:
     mongodb:
-      database: UserDb_test
+      host: localhost
+      port: 27017
+      database: user_service_test_db # Overwrites UserDb_test from original yml
+      uri: mongodb://localhost:27017/user_service_test_db
       auto-index-creation: true
+  # Configuration for embedded mongo (if used, often deactivated if external mongo is configured)
+  # mongodb:
+  #   embedded:
+  #     version: 4.0.21
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  security: # Security User Configuration from properties
+    user:
+      name: admin
+      password: admin123
+      roles: ADMIN
 
 security:
-  jwt:
-    secret-key: test-secret-key-for-integration-suite
-    expiration-ms: 60000  # 1 minute for faster testing
-    refresh-expiration-ms: 300000  # 5 minutes for testing
-  lockout:
-    max-attempts: 3  # Lower threshold for testing
-    duration: PT1M  # Shorter duration for testing
-    initial-delay: PT1S
-    max-delay: PT5S
+  auth: # JWT Configuration from properties
+    secret-key: dGVzdC1qd3Qtc2VjcmV0LWtleS10aGF0cy1hdC1sZWFzdC0zMmNoYXJz # Base64 encoded
+    refresh-secret-key: dGVzdC1qd3QtcmVmcmVzaC1zZWNyZXQta2V5LXRoYXRzLWF0LWxlYXN0LTMyY2hhcnM= # Base64 encoded
+    token-validity: 1200000 # 20 minutes in ms (Overwrites jwt.expiration-ms)
+    refresh-token-validity: 604800000 # 7 days in ms (Overwrites jwt.refresh-expiration-ms)
+  account: # Account Lockout from properties
+    lockout:
+      max-attempts: 5 # Overwrites lockout.max-attempts
+      duration: 300000 # 5 minutes in ms (Overwrites lockout.duration)
+  lockout: # Lockout Timing from properties (Merges with existing lockout)
+    # Properties values seem to be duplicates or less specific, keeping YAML structure
+    initial-delay: PT1S # From original yml
+    max-delay: PT5S   # From original yml
+    # Values from properties were:
+    # security.lockout.initial-delay=PT1S
+    # security.lockout.max-delay=PT5S
+  cors: # CORS Configuration from properties
+    allowed-origins: http://localhost:3000,http://localhost:4200
+    allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+    allowed-headers: Origin,Content-Type,Accept,Authorization
+    exposed-headers: Authorization
+    allow-credentials: true
+    max-age: 3600
+  headers: # Security Headers from properties
+    hsts: true
+    hsts-max-age: 31536000
+    content-security-policy: default-src 'self'; frame-ancestors 'none'
+    x-content-type-options: nosniff
+    x-frame-options: DENY
+    x-xss-protection: 1; mode=block
+
+# Existing jwt and lockout structures from original yml are mostly overwritten or merged above
+# security:
+#   jwt:
+#     secret-key: test-secret-key-for-integration-suite # Overwritten by security.auth.secret-key
+#     expiration-ms: 60000 # Overwritten by security.auth.token-validity
+#     refresh-expiration-ms: 300000 # Overwritten by security.auth.refresh-token-validity
+#   lockout:
+#     max-attempts: 3 # Overwritten by security.account.lockout.max-attempts
+#     duration: PT1M # Overwritten by security.account.lockout.duration
+#     initial-delay: PT1S # Kept
+#     max-delay: PT5S   # Kept
+
+logging:
+  level:
+    root: INFO
+    genaidemopoc.ecommerceproj1a.jwtspringsecurity.usersvc: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.data.mongodb: DEBUG
 

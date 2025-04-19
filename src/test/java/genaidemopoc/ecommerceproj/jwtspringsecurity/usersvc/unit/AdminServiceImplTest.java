@@ -1,4 +1,4 @@
-package genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.service;
+package genaidemopoc.ecommerceproj.jwtspringsecurity.usersvc.unit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

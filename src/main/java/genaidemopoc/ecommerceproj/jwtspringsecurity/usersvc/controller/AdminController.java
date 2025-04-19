@@ -81,31 +81,16 @@ public class AdminController {
 
 	@Operation(
 		summary = "Get All Users", 
-		description = "Retrieves a list of all users",
+		description = "Retrieves a list of all users (Admin Only)",
 		security = @SecurityRequirement(name = "Bearer Authentication")
 	)
 	@ApiResponses(value = {
 		@ApiResponse(responseCode = "200", description = "Successfully retrieved list")
 	})
 	@PreAuthorize("hasRole('ADMIN')")
-	@GetMapping(AppConstants.USER_ENDPOINT)
-	public ResponseEntity<List<UserEntity>> getUsers() {
-		List<UserEntity> users = adminService.getAllUsers();
-		logger.debug("GET /api/admin/users endpoint called, returning {} users", users.size());
-		return ResponseEntity.ok(users);
-	}
-
-	@Operation(
-		summary = "Get All Users (Alternative Endpoint)", 
-		description = "Retrieves a list of all users",
-		security = @SecurityRequirement(name = "Bearer Authentication")
-	)
-	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Successfully retrieved list")
-	})
-	@PreAuthorize("hasRole('ADMIN')")
-	@GetMapping(AppConstants.USER_ENDPOINT + "/all")
+	@GetMapping("/user/all")
 	public ResponseEntity<List<UserEntity>> getAllUsers() {
+		logger.info("Fetching all users via /api/admin/user/all");
 		List<UserEntity> users = adminService.getAllUsers();
 		return ResponseEntity.ok(users);
 	}
@@ -201,77 +186,39 @@ public class AdminController {
 		}
 	}
 
-	@Operation(
-		summary = "Reset Admin Passwords", 
-		description = "Resets passwords for default admin accounts (admin@example.com, admin99@example.com) to 'Password@1234'",
-		security = @SecurityRequirement(name = "Bearer Authentication")
-	)
-	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Admin passwords reset successfully"),
-		@ApiResponse(responseCode = "401", description = "Unauthorized"),
-		@ApiResponse(responseCode = "403", description = "Forbidden - requires admin role"),
-		@ApiResponse(responseCode = "500", description = "Internal server error during reset")
-	})
-	@PreAuthorize("hasRole('ADMIN')")
-	@PostMapping("/reset-password")
-	public ResponseEntity<Map<String, Object>> resetAdminPasswords() {
-		Map<String, Object> response = new HashMap<>();
-		logger.info("Attempting to reset default admin passwords");
-		
-		try {
-			String rawPassword = "Password@1234";
-			
-			// Reset admin@example.com
-			try {
-				Optional<UserEntity> adminOpt = userRepository.findByEmail("admin@example.com");
-				if (adminOpt.isPresent()) {
-					UserEntity admin = adminOpt.get();
-					String encodedPassword = passwordEncoder.encode(rawPassword);
-					admin.setPassword(encodedPassword);
-					if (admin.getRoles() == null) admin.setRoles(new ArrayList<>());
-					if (!admin.getRoles().contains(SecurityConstants.ROLE_ADMIN)) admin.getRoles().add(SecurityConstants.ROLE_ADMIN);
-					userRepository.save(admin);
-					response.put("adminResetSuccess", true);
-					logger.info("Password reset for admin@example.com");
-				} else {
-					response.put("adminResetSuccess", false);
-					response.put("adminError", "User admin@example.com not found");
-					logger.warn("User admin@example.com not found for password reset");
-				}
-			} catch (Exception e) {
-				logger.error("Error resetting password for admin@example.com: {}", e.getMessage(), e);
-				response.put("adminResetSuccess", false);
-				response.put("adminError", "Error resetting password: " + e.getMessage());
-			}
-			
-			// Reset admin99@example.com
-			try {
-				Optional<UserEntity> admin99Opt = userRepository.findByEmail("admin99@example.com");
-				if (admin99Opt.isPresent()) {
-					UserEntity admin99 = admin99Opt.get();
-					String encodedPassword = passwordEncoder.encode(rawPassword);
-					admin99.setPassword(encodedPassword);
-					if (admin99.getRoles() == null) admin99.setRoles(new ArrayList<>());
-					if (!admin99.getRoles().contains(SecurityConstants.ROLE_ADMIN)) admin99.getRoles().add(SecurityConstants.ROLE_ADMIN);
-					userRepository.save(admin99);
-					response.put("admin99ResetSuccess", true);
-					logger.info("Password reset for admin99@example.com");
-				} else {
-					response.put("admin99ResetSuccess", false);
-					response.put("admin99Error", "User admin99@example.com not found");
-					logger.warn("User admin99@example.com not found for password reset");
-				}
-			} catch (Exception e) {
-				logger.error("Error resetting password for admin99@example.com: {}", e.getMessage(), e);
-				response.put("admin99ResetSuccess", false);
-				response.put("admin99Error", "Error resetting password: " + e.getMessage());
-			}
-			
-			return ResponseEntity.ok(response);
-		} catch (Exception e) {
-			logger.error("Unexpected error during admin password reset process: {}", e.getMessage(), e);
-			response.put("error", "Failed to reset admin passwords: " + e.getMessage());
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-		}
-	}
+    // TEMPORARY DIAGNOSTIC ENDPOINT - REMOVE AFTER DEBUGGING
+    @Operation(
+        summary = "[TEMP DEBUG] Check Password Match",
+        description = "Checks if a provided raw password matches a stored Bcrypt hash using the configured PasswordEncoder. Requires ADMIN role. REMOVE THIS ENDPOINT AFTER DEBUGGING!",
+        security = @SecurityRequirement(name = "Bearer Authentication")
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Comparison result returned"),
+        @ApiResponse(responseCode = "400", description = "Invalid input (missing fields)"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - requires admin role")
+    })
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/debug/check-password")
+    public ResponseEntity<Map<String, Object>> checkPasswordMatch(@RequestBody Map<String, String> request) {
+        Map<String, Object> response = new HashMap<>();
+        String rawPassword = request.get("rawPassword");
+        String storedHash = request.get("storedHash");
+
+        if (rawPassword == null || storedHash == null) {
+            response.put("error", "Missing 'rawPassword' or 'storedHash' in request body");
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        // Use the injected PasswordEncoder (same one used for login)
+        boolean matches = passwordEncoder.matches(rawPassword, storedHash);
+
+        response.put("rawPasswordProvided", rawPassword); // Be careful logging this even here
+        response.put("storedHashProvided", storedHash);
+        response.put("doPasswordsMatch", matches);
+
+        logger.debug("[TEMP DEBUG] checkPasswordMatch called: raw='{}', hash='{}', matches={}", "****", storedHash, matches); // Log hash & result, mask raw pw
+
+        return ResponseEntity.ok(response);
+    }
+    // End of temporary endpoint
 }

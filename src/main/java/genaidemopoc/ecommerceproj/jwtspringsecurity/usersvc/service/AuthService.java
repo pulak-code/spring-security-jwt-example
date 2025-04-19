@@ -10,14 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface AuthService {
 
 	/**
-	 * Authenticate User & Generate JWT (Access + Refresh Tokens)
-	 */
-	AuthResponse authenticateUser(LoginRequest loginRequest, HttpServletResponse response);
-
-	/**
 	 * Register a New User
 	 */
-	AuthResponse registerUser(UserRegisterRequest registerRequest);
+	AuthResponse registerUser(UserRegisterRequest registerRequest, HttpServletResponse response);
 
 	AuthResponse refreshAccessTokens(String oldRefreshToken, HttpServletResponse response);
 

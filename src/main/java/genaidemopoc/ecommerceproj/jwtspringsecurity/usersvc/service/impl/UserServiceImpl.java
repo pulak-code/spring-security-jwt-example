@@ -52,7 +52,6 @@ public class UserServiceImpl implements UserService {
 		if (userRepository.existsByEmail(user.getEmail())) {
 			throw new UserAlreadyExistsException(String.format(AppConstants.USER_EMAIL_ALREADY_EXISTS, user.getEmail()));
 		}
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
 

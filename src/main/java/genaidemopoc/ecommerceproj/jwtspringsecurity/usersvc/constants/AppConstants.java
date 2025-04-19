@@ -21,7 +21,7 @@ public final class AppConstants {
     public static final String API_USERS_URL_ENDPOINT = "/api/users";
     public static final String AUTH_BASE_PATH = "/api/auth";
     public static final String USER_LOGIN_ENDPOINT = "/login";
-    public static final String USER_ENDPOINT = "/user";
+    public static final String USER_ENDPOINT = "/api/user";
     public static final String CONTROLLER_DESCRIPTION = "API for managing users";
     public static final String USER_CONTROLLER = "User Controller";
     public static final String BEARER_AUTHENTICATION = "Bearer Authentication";
